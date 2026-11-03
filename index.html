@@ -41,6 +41,7 @@ button.btn:disabled{opacity:.35;cursor:default}
 </head>
 <body>
 <main id="home">
+  <div class="top"><a href="home.html">🏠 Home</a></div>
     <h1>📚 Little Story Nook</h1>
   <p class="sub">Tap a book to start reading</p>
   <div class="chips" id="chips"></div>
@@ -52,7 +53,7 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["rhymes","🎵 Rhymes"],["bn","বাংলা"],["hi","हिन्दी"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["rhymes","🎵 Rhymes"],["en","English"],["bn","বাংলা"],["hi","हिन्दी"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -295,11 +296,74 @@ var BOOKS=[
  ["🦋🌼🌺","প্রজাপতি\n\nপ্রজাপতি, প্রজাপতি,\nরঙিন ডানা মেলো,\nফুলের বনে ঘুরে ঘুরে\nআমার সঙ্গে খেলো।","l"],
  ["🌅🐦🌿","ভোর হল রে\n\nভোর হল রে, ভোর হল,\nপাখিরা সব গান ধরল।\nসূর্য মামা উঠল হেসে,\nসবাই জাগে নতুন বেশে।","l"],
  ["🌙😴⭐","ঘুমের গান\n\nঘুম ঘুম ঘুম, খোকন ঘুম,\nরাত হয়েছে, সবাই নিঝুম।\nতারারা সব মিটমিটিয়ে,\nদেখছে তোমায় আদর দিয়ে।","l"]]}
+,{id:"days-months-en",cat:"learn",title:"Days and Months",emoji:"📅",color:"#dcecff",pages:[
+ ["☀️🌙🔥🌿","Days of the Week\n\nSunday\nMonday\nTuesday\nWednesday","l"],
+ ["⚡💖🪐","Thursday\nFriday\nSaturday\n\nThere are 7 days in a week.","l"],
+ ["📅❄️🌱","Months of the Year\n\nJanuary\nFebruary\nMarch\nApril","l"],
+ ["🌸☀️🍉🌦️","May\nJune\nJuly\nAugust","l"],
+ ["🍂🍁🍃⛄","September\nOctober\nNovember\nDecember\n\nThere are 12 months in a year.","l"]]},
+{id:"days-months-bn",cat:"learn",lang:"bn",title:"সপ্তাহ ও মাস",emoji:"🗓️",color:"#ffe6cf",pages:[
+ ["☀️🌙🔥🌿","সপ্তাহের দিন\n\nরবিবার\nসোমবার\nমঙ্গলবার\nবুধবার","l"],
+ ["⚡💖🪐","বৃহস্পতিবার\nশুক্রবার\nশনিবার\n\nসপ্তাহে সাত দিন।","l"],
+ ["📅❄️🌱","ইংরেজি মাস\n\nজানুয়ারি (January)\nফেব্রুয়ারি (February)\nমার্চ (March)\nএপ্রিল (April)","l"],
+ ["🌸☀️🍉🌦️","মে (May)\nজুন (June)\nজুলাই (July)\nআগস্ট (August)","l"],
+ ["🍂🍁🍃⛄","সেপ্টেম্বর (September)\nঅক্টোবর (October)\nনভেম্বর (November)\nডিসেম্বর (December)\n\nবছরে বারো মাস।","l"]]},
+{id:"days-months-hi",cat:"learn",lang:"hi",title:"दिन और महीने",emoji:"📆",color:"#e8dcff",pages:[
+ ["☀️🌙🔥🌿","सप्ताह के दिन\n\nरविवार\nसोमवार\nमंगलवार\nबुधवार","l"],
+ ["⚡💖🪐","गुरुवार\nशुक्रवार\nशनिवार\n\nसप्ताह में सात दिन होते हैं।","l"],
+ ["📅❄️🌱","साल के महीने\n\nजनवरी (January)\nफ़रवरी (February)\nमार्च (March)\nअप्रैल (April)","l"],
+ ["🌸☀️🍉🌦️","मई (May)\nजून (June)\nजुलाई (July)\nअगस्त (August)","l"],
+ ["🍂🍁🍃⛄","सितंबर (September)\nअक्टूबर (October)\nनवंबर (November)\nदिसंबर (December)\n\nसाल में बारह महीने होते हैं।","l"]]},
+{id:"shapes-colours-en",cat:"learn",title:"Shapes and Colours",emoji:"🔷",color:"#d7f0ff",pages:[
+ ["⚪⬜🔺","Shapes\n\nCircle ⚪\nSquare ⬜\nTriangle 🔺","l"],
+ ["🚪⭐❤️","Rectangle 🚪 (like a door)\nStar ⭐\nHeart ❤️","l"],
+ ["🔴🔵🟡🟢","Colours\n\nRed 🔴\nBlue 🔵\nYellow 🟡\nGreen 🟢","l"],
+ ["🟠💗🟣🟤","Orange 🟠\nPink 💗\nPurple 🟣\nBrown 🟤","l"],
+ ["⚫⚪🌈","Black ⚫\nWhite ⚪\n\nA rainbow 🌈 has many colours!","l"]]},
+{id:"shapes-colours-bn",cat:"learn",lang:"bn",title:"আকৃতি ও রং",emoji:"🎨",color:"#ffe0ee",pages:[
+ ["⚪⬜🔺","আকৃতি\n\nবৃত্ত ⚪\nবর্গ ⬜\nত্রিভুজ 🔺","l"],
+ ["🚪⭐❤️","আয়তক্ষেত্র 🚪 (দরজার মতো)\nতারা ⭐\nহৃদয় ❤️","l"],
+ ["🔴🔵🟡🟢","রং\n\nলাল 🔴\nনীল 🔵\nহলুদ 🟡\nসবুজ 🟢","l"],
+ ["🟠💗🟣🟤","কমলা 🟠\nগোলাপি 💗\nবেগুনি 🟣\nবাদামি 🟤","l"],
+ ["⚫⚪🌈","কালো ⚫\nসাদা ⚪\n\nরামধনুতে অনেক রং! 🌈","l"]]},
+{id:"shapes-colours-hi",cat:"learn",lang:"hi",title:"आकार और रंग",emoji:"🖍️",color:"#e0f5d8",pages:[
+ ["⚪⬜🔺","आकार\n\nगोला ⚪\nवर्ग ⬜\nत्रिभुज 🔺","l"],
+ ["🚪⭐❤️","आयत 🚪 (दरवाज़े जैसा)\nतारा ⭐\nदिल ❤️","l"],
+ ["🔴🔵🟡🟢","रंग\n\nलाल 🔴\nनीला 🔵\nपीला 🟡\nहरा 🟢","l"],
+ ["🟠💗🟣🟤","नारंगी 🟠\nगुलाबी 💗\nबैंगनी 🟣\nभूरा 🟤","l"],
+ ["⚫⚪🌈","काला ⚫\nसफ़ेद ⚪\n\nइंद्रधनुष में कई रंग होते हैं! 🌈","l"]]},
+{id:"numbers-11-100-en",cat:"learn",title:"Numbers 11 to 100",emoji:"💯",color:"#fff0b8",pages:[
+ ["🔢🔟","11 – Eleven\n12 – Twelve\n13 – Thirteen\n14 – Fourteen\n15 – Fifteen","l"],
+ ["🔢2️⃣0️⃣","16 – Sixteen\n17 – Seventeen\n18 – Eighteen\n19 – Nineteen\n20 – Twenty","l"],
+ ["💯🎉","30 – Thirty\n40 – Forty\n50 – Fifty\n60 – Sixty\n70 – Seventy\n80 – Eighty\n90 – Ninety\n100 – One hundred","l"]]},
+{id:"numbers-11-100-bn",cat:"learn",lang:"bn",title:"১১ থেকে ১০০ পর্যন্ত",emoji:"🔟",color:"#d9f2e0",pages:[
+ ["🔢🔟","১১ (11) – এগারো\n১২ (12) – বারো\n১৩ (13) – তেরো\n১৪ (14) – চৌদ্দ\n১৫ (15) – পনেরো","l"],
+ ["🔢2️⃣0️⃣","১৬ (16) – ষোলো\n১৭ (17) – সতেরো\n১৮ (18) – আঠারো\n১৯ (19) – উনিশ\n২০ (20) – বিশ","l"],
+ ["💯🎉","৩০ (30) – ত্রিশ\n৪০ (40) – চল্লিশ\n৫০ (50) – পঞ্চাশ\n৬০ (60) – ষাট\n৭০ (70) – সত্তর\n৮০ (80) – আশি\n৯০ (90) – নব্বই\n১০০ (100) – একশো","l"]]},
+{id:"numbers-11-100-hi",cat:"learn",lang:"hi",title:"११ से १०० तक",emoji:"🔢",color:"#ffe0d0",pages:[
+ ["🔢🔟","११ (11) – ग्यारह\n१२ (12) – बारह\n१३ (13) – तेरह\n१४ (14) – चौदह\n१५ (15) – पंद्रह","l"],
+ ["🔢2️⃣0️⃣","१६ (16) – सोलह\n१७ (17) – सत्रह\n१८ (18) – अठारह\n१९ (19) – उन्नीस\n२० (20) – बीस","l"],
+ ["💯🎉","३० (30) – तीस\n४० (40) – चालीस\n५० (50) – पचास\n६० (60) – साठ\n७० (70) – सत्तर\n८० (80) – अस्सी\n९० (90) – नब्बे\n१०० (100) – सौ","l"]]},
+{id:"action-rhymes-en",cat:"rhymes",title:"Action and Sleepy Rhymes",emoji:"🤸",color:"#ffe7c2",pages:[
+ ["👏🦶🔄","Clap, Clap, Clap\n\nClap, clap, clap your hands,\nStamp, stamp, stamp your feet,\nTurn around and touch the ground,\nThen sit down on your seat.","l"],
+ ["🐰🥕👂","Hop Like a Bunny\n\nHop, hop, hop like a bunny,\nHop, hop, hop, it’s fun and funny.\nWiggle your nose, flap your ears,\nHop, hop, hop, and give three cheers!","l"],
+ ["🌅🏞️🐦","Sleepy Sun\n\nThe sun is going down, down, down,\nOver the hills and over the town.\nBirds in the nest and kids in bed,\nSweet dreams for every sleepy head.","l"],
+ ["🌙⭐😴","Little Moon Lullaby\n\nHush now, little one, the moon is high,\nStars are singing in the sky.\nClose your eyes and dream away,\nWe will play another day.","l"]]},
+{id:"action-rhymes-hi",cat:"rhymes",lang:"hi",title:"ताली और लोरी",emoji:"🌛",color:"#e3e0ff",pages:[
+ ["👏🦶🔄","ताली बजाओ\n\nताली बजाओ, ताली बजाओ,\nमिलकर सारे गीत गाओ।\nपैर पटको, धम-धम-धम,\nफिर घूम जाओ, छम-छम-छम।","l"],
+ ["🐰🥕🌿","उछलता खरगोश\n\nउछल-उछल कर खरगोश आया,\nगाजर देखी, मन ललचाया।\nकुतर-कुतर कर गाजर खाई,\nताली बजाओ, मौज मनाई।","l"],
+ ["🌌⭐🌙","रात आई\n\nरात आई, चुपके आई,\nतारों वाली चादर लाई।\nसो गए पंछी, सो गए फूल,\nसुबह मिलेंगे, जाना न भूल।","l"],
+ ["🌙👶💤","सो जा मुन्ना\n\nसो जा मुन्ना, सो जा रानी,\nचंदा सुनाए नई कहानी।\nतारे टिम-टिम गाना गाएँ,\nसपनों में परियाँ आ जाएँ।","l"]]},
+{id:"action-rhymes-bn",cat:"rhymes",lang:"bn",title:"হাততালি ও ঘুমপাড়ানি",emoji:"🧸",color:"#ffe3e3",pages:[
+ ["👏🦶🔄","হাততালি\n\nহাততালি দাও, হাততালি দাও,\nসবাই মিলে গান গাও।\nপা ঠুকে ঠুকে ধুপধাপ,\nঘুরে ঘুরে বসি চুপচাপ।","l"],
+ ["🐰🥕🌿","লাফ দিয়ে খরগোশ\n\nলাফ দিয়ে লাফ, খরগোশ আসে,\nগাজর দেখে মিটিমিটি হাসে।\nকুটুস কুটুস গাজর খায়,\nআনন্দে সে নেচে যায়।","l"],
+ ["🌆🐦⭐","সন্ধ্যা নামে\n\nসন্ধ্যা নামে, সন্ধ্যা নামে,\nপাখিরা সব বাসায় থামে।\nতারার প্রদীপ জ্বলে আকাশে,\nঘুম নেমে আসে সবার পাশে।","l"],
+ ["🌙🧚💤","ঘুমের পরী\n\nঘুম আয় রে, ঘুম আয় রে,\nচাঁদের দেশে পরী ডাকে।\nসোনার নৌকায় চড়ে বসো,\nস্বপ্ন-নদীর বাঁকে বাঁকে।","l"]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
 if(!TTS)document.getElementById("speak").style.display="none";
-function drawGrid(){grid.innerHTML="";BOOKS.forEach(function(b){if(filter!=="all"&&b.cat!==filter)return;
+function drawGrid(){grid.innerHTML="";BOOKS.forEach(function(b){if(filter!=="all"&&b.cat!==filter&&(b.lang||"en")!==filter)return;
  var el=document.createElement("button");el.className="book";el.lang=b.lang||"en";el.setAttribute("aria-label","Read "+b.title);
  el.innerHTML='<div class="cover" style="background:'+b.color+'">'+b.emoji+'</div><b>'+b.title+'</b>';
  el.onclick=function(){location.hash=b.id};grid.appendChild(el)})}
