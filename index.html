@@ -18,10 +18,10 @@ h1{text-align:center;margin:12px 12px 4px;font-size:clamp(1.6rem,6vw,2.4rem)}
 .chip{border:2px solid var(--accent);background:var(--card);color:var(--ink);border-radius:999px;font:inherit;font-weight:700;padding:6px 14px;cursor:pointer}
 .chip.on{background:var(--accent);color:#2b1a05}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px;max-width:820px;margin:0 auto;padding:8px 18px 30px}
-.book{border:0;padding:0;background:var(--card);border-radius:16px;box-shadow:0 6px 14px var(--shadow);cursor:pointer;overflow:hidden;color:var(--ink);font:inherit;text-align:center;transition:transform .15s}
+.book{display:flex;flex-direction:column;border:0;padding:0;background:var(--card);border-radius:16px;box-shadow:0 6px 14px var(--shadow);cursor:pointer;overflow:hidden;color:var(--ink);font:inherit;text-align:center;transition:transform .15s}
 .book:hover,.book:focus-visible{transform:translateY(-4px) rotate(-1deg);outline:3px solid var(--accent)}
-.cover{aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:4.2rem;border-left:10px solid rgba(0,0,0,.18)}
-.book b{display:block;padding:10px 8px 12px;font-size:1rem;line-height:1.2}
+.cover{width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:4.2rem;border-left:10px solid rgba(0,0,0,.18)}
+.book b{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 8px 12px;font-size:1rem;line-height:1.2;min-height:4.2em}
 #reader{display:none;max-width:720px;margin:0 auto;padding:12px 16px 24px;min-height:100vh;flex-direction:column}
 .bar{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .bar h2{margin:0;font-size:1.1rem;flex:1;text-align:center}
@@ -36,8 +36,7 @@ button.btn:disabled{opacity:.35;cursor:default}
 </head>
 <body>
 <main id="home">
-  <div class="top"><a href="../index.html">🏠 Home</a></div>
-  <h1>📚 Little Story Nook</h1>
+    <h1>📚 Little Story Nook</h1>
   <p class="sub">Tap a book to start reading</p>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grid"></div>
@@ -48,7 +47,7 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -98,6 +97,66 @@ var BOOKS=[
  ["🐻🦗🎵","Little Bear heard crickets singing, leaves whispering, and a stream bubbling. It was so peaceful."],
  ["🐻🧸💤","He hugged his teddy tight and yawned a great big yawn. His eyes grew heavy."],
  ["🏡🌙😴","Mama Bear tucked him in and kissed his nose. “Goodnight, Little Bear.” And the whole forest slept."]]}
+,{id:"three-little-pigs",cat:"lessons",title:"The Three Little Pigs",emoji:"🐷",color:"#ffd9e4",pages:[
+ ["🐷🐷🐷🏡","Three little pigs left home to build houses of their own. A big, hungry wolf lived nearby."],
+ ["🐷🌾🪵","The first pig built a house of straw. The second pig built a house of sticks. Both finished quickly and went out to play."],
+ ["🐷🧱🔨","The third pig took his time and built a strong house of bricks. “Hard work now keeps me safe later,” he said."],
+ ["🐺💨🏚️","The wolf huffed and puffed and blew down the straw house and the stick house. The two pigs ran to their brother’s house."],
+ ["🐺💨🧱🐷","The wolf huffed and puffed at the brick house, but it did not move. The pigs were safe together, and the wolf went away."]]},
+{id:"goldilocks",cat:"fairy",title:"Goldilocks and the Three Bears",emoji:"🥣",color:"#fff1b8",pages:[
+ ["🌲🏡👧","A little girl named Goldilocks was walking in the forest when she found a cosy cottage. Nobody was home, so she peeked inside."],
+ ["🥣🥣🥣","On the table were three bowls of porridge. One was too hot, one was too cold, and the little one was just right!"],
+ ["🪑🪑🪑","She tried three chairs. The big one was too hard, the middle one was too soft, and the tiny one was just right, until it broke!"],
+ ["🛏️😴👧","Feeling sleepy, she tried three beds and fell asleep in the little one. Soon the three bears came home."],
+ ["🐻🐻🐻👧","“Someone has been in our house!” said the bears. Goldilocks woke up, said “I’m sorry,” and hurried home. She learned to always ask first."]]},
+{id:"red-riding-hood",cat:"fairy",title:"Little Red Riding Hood",emoji:"🧣",color:"#ffc9c9",pages:[
+ ["🧣🧺🌲","A girl in a red hood set off with a basket of treats for her grandmother, who lived through the woods. “Stay on the path,” said her mother."],
+ ["🐺🌸👧","On the way, a sly wolf asked where she was going. She told him, and the wolf ran ahead by a shorter way."],
+ ["🐺🏠👵","The wolf reached Grandmother’s house first and hid. When the girl arrived, something looked very strange."],
+ ["👧❓🐺","“What big eyes you have!” she said. She knew something was wrong and shouted for help."],
+ ["🪓🌳🏠","A kind woodcutter heard her and chased the wolf away. Grandmother was safe. The girl promised to listen to her mother and never trust strangers."]]},
+{id:"boy-who-cried-wolf",cat:"lessons",title:"The Boy Who Cried Wolf",emoji:"🐑",color:"#e6f0ff",pages:[
+ ["🐑🐑👦⛰️","A shepherd boy watched his sheep on a hill near a village. Every day was quiet, and he felt bored."],
+ ["👦😆🐺","For fun, he shouted, “Wolf! Wolf!” The villagers ran up the hill to help, but there was no wolf. The boy laughed."],
+ ["👦😆🏃","He played the trick again. The villagers came running a second time, and they were not happy."],
+ ["🐺🐑😱","Then a real wolf came! “Wolf! Wolf!” the boy cried. This time nobody came, because they thought it was another trick."],
+ ["👦😢🌅","The boy lost some sheep and learned a big lesson. Nobody believes a person who tells lies, even when they finally tell the truth."]]},
+{id:"gingerbread-man",cat:"fairy",title:"The Gingerbread Man",emoji:"🍪",color:"#f3d9c0",pages:[
+ ["👵🍪🏠","An old woman baked a gingerbread man with raisin eyes and a candy smile. Suddenly he jumped up and ran out the door!"],
+ ["🍪💨🏃","“Run, run, as fast as you can! You can’t catch me, I’m the Gingerbread Man!” he sang. Everyone chased him."],
+ ["🐄🐴🍪","He ran past a cow and a horse, laughing. “I got away from them, and I’ll get away from you!”"],
+ ["🦊🌊🍪","At a river, a clever fox said, “Hop on my back, and I’ll carry you across.” The Gingerbread Man agreed."],
+ ["🦊😋🍪","The fox tossed him up and, gulp, the Gingerbread Man was gone. Let’s remember not to be too proud, and not to trust everyone who sounds friendly."]]},
+{id:"jack-and-beanstalk",cat:"fairy",title:"Jack and the Beanstalk",emoji:"🫘",color:"#d4f0d0",pages:[
+ ["👦🐄🫘","Jack and his mother were very poor. She sent him to sell their cow, but Jack traded it for a handful of magic beans."],
+ ["🌱⬆️☁️","Next morning, a giant beanstalk had grown up into the clouds! Jack climbed and climbed all the way to the top."],
+ ["🏰👹☁️","At the top stood a castle where a giant lived. Jack tiptoed inside, quiet as a mouse."],
+ ["🥚🪙🐔","Jack found a hen that laid golden eggs. He grabbed her, slipped out, and raced down the beanstalk as the giant woke."],
+ ["🪓🌱🏡","Jack chopped down the beanstalk, and the giant could not follow. Jack and his mother were never poor again."]]},
+{id:"monkey-and-crocodile",cat:"lessons",title:"The Monkey and the Crocodile",emoji:"🐒",color:"#ffe8c2",pages:[
+ ["🐒🌳🌊","A clever monkey lived in a mango tree by a river. He shared his sweet mangoes with a crocodile who came to visit."],
+ ["🐊🥭🏠","The crocodile took mangoes home to his wife. She had a wicked plan and told him, “Bring the monkey to our home.”"],
+ ["🐊🐒🌊","“Come and visit my home!” said the crocodile. The monkey hopped on his back, and they swam into the deep river."],
+ ["🐊😳🐒","Halfway across, the crocodile confessed the plan. The monkey stayed calm. “Oh dear! I left my heart in the tree. Take me back to fetch it.”"],
+ ["🌳🐒😄","Back at the shore, the monkey leapt into his tree. “Silly crocodile! Nobody keeps their heart in a tree!” Quick thinking saved the day."]]},
+{id:"blind-men-and-elephant",cat:"lessons",title:"The Blind Men and the Elephant",emoji:"🐘",color:"#dfe6f2",pages:[
+ ["👨‍🦯👨‍🦯🐘","In an old story from India, some blind men heard that an elephant had come to town. None of them had ever met one, so they went to touch it."],
+ ["🐘🦷🤲","One man touched the tusk and said, “An elephant is like a spear!” Another touched its side and said, “No, it is like a wall!”"],
+ ["🐘🦵🌳","A third touched the leg. “It’s like a tree!” A fourth held the trunk. “It’s a snake!”"],
+ ["🐘👂🪭","The fifth touched the ear and said, “A fan!” The sixth held the tail and cried, “A rope!” They began to argue loudly."],
+ ["🐘💡🤝","A wise man said, “Each of you is right about one part. Put them together, and you know the whole elephant.” Listening to others helps us see the whole truth."]]},
+{id:"elves-and-shoemaker",cat:"kindness",title:"The Elves and the Shoemaker",emoji:"🧝",color:"#e0d4ff",pages:[
+ ["👞🧵😟","A kind shoemaker became so poor that he had leather for only one pair of shoes. He cut it out and went to bed."],
+ ["🌙🧝👞","In the morning, a beautiful pair of shoes sat on his table, perfectly made! A customer bought them happily."],
+ ["🪙👞👞","With the money, he bought leather for two pairs. The next morning, two perfect pairs were ready. This kept happening."],
+ ["🌙👀🧝","One night, the shoemaker and his wife hid and watched. Two tiny elves in ragged clothes came in, sewing and hammering."],
+ ["🧥🎁🧝","To say thank you, they made little clothes and tiny shoes for the elves. The elves danced with joy, and the shoemaker was never poor again."]]},
+{id:"cinderella",cat:"kindness",title:"Cinderella",emoji:"👠",color:"#d9ecff",pages:[
+ ["👧🧹🏠","Cinderella was kind and gentle, but her stepmother and stepsisters made her do all the housework."],
+ ["💌👗🏰","The prince invited everyone to a royal ball. Cinderella had no gown, and her stepfamily left without her. She cried."],
+ ["🧚‍♀️✨🎃","Her fairy godmother appeared with a wave of her wand. A pumpkin became a coach, and rags became a shining gown with glass slippers. “Be home by midnight!”"],
+ ["🕛👠🏃","At the ball, Cinderella danced with the prince. When the clock struck twelve, she ran, leaving one glass slipper on the stairs."],
+ ["👠👸💖","The prince searched the kingdom, and the slipper fit only Cinderella. Kindness is the greatest magic of all."]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
