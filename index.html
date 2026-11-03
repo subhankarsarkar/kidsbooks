@@ -32,6 +32,8 @@ button.btn:disabled{opacity:.35;cursor:default}
 .text{padding:18px 22px 24px;font-size:clamp(1.15rem,4.2vw,1.5rem);line-height:1.5;text-align:center}
 .nav{display:flex;align-items:center;justify-content:space-between;margin-top:14px;gap:8px}
 .dots{display:flex;gap:8px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--muted);opacity:.4}.dots i.on{background:var(--accent);opacity:1;transform:scale(1.3)}
+.text:lang(bn),.text:lang(hi){line-height:1.9}
+.book b:lang(bn),.book b:lang(hi),#title:lang(bn),#title:lang(hi){line-height:1.5}
 </style>
 </head>
 <body>
@@ -47,7 +49,7 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["bn","বাংলা"],["hi","हिन्दी"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -157,19 +159,91 @@ var BOOKS=[
  ["🧚‍♀️✨🎃","Her fairy godmother appeared with a wave of her wand. A pumpkin became a coach, and rags became a shining gown with glass slippers. “Be home by midnight!”"],
  ["🕛👠🏃","At the ball, Cinderella danced with the prince. When the clock struck twelve, she ran, leaving one glass slipper on the stairs."],
  ["👠👸💖","The prince searched the kingdom, and the slipper fit only Cinderella. Kindness is the greatest magic of all."]]}
+,{id:"sat-bhai-champa",cat:"bn",lang:"bn",title:"সাত ভাই চম্পা",emoji:"🌸",color:"#ffdcec",pages:[
+ ["👑👦👦👦👦👦👦👦","এক দেশে এক রাজা ছিলেন। তাঁর ছোটরানীর সাত ছেলে আর এক মেয়ে হয়েছিল। বড়রানীরা তা দেখে হিংসায় জ্বলে উঠলেন।"],
+ ["😠🌱","হিংসুটে রানীরা সন্তানদের সরিয়ে ফেললেন। কিন্তু সেই জায়গায় এক আশ্চর্য গাছ জন্মাল।"],
+ ["🌸🌸🌸🌺","গাছে ফুটল সাতটি সোনালি চম্পা ফুল আর একটি লাল পারুল ফুল। ফুলগুলো কথা বলতে পারত!"],
+ ["👑🌸👂","রাজা ফুল তুলতে এলে ফুলেরা বলল, “আমরা তোমারই সাত ছেলে আর মেয়ে।” রাজা অবাক হয়ে গেলেন।"],
+ ["👨‍👩‍👧‍👦💛🏰","ফুলেরা আবার সাত ভাই আর পারুল হয়ে গেল। হিংসা মন খারাপ করে দেয়, আর ভালোবাসা সবাইকে মিলিয়ে দেয়।"]]},
+{id:"ghumanto-puri",cat:"bn",lang:"bn",title:"ঘুমন্ত পুরী",emoji:"🏰",color:"#e5ddff",pages:[
+ ["🏰😴🌙","এক দেশে এক ঘুমন্ত পুরী ছিল। সেখানে রাজা, রানী, সৈনিক, সবাই গভীর ঘুমে অচেতন।"],
+ ["🤴🐎🌲","এক সাহসী রাজপুত্র ঘোড়ায় চড়ে বনের পথ পেরিয়ে সেই পুরীতে এসে পৌঁছল।"],
+ ["👸💤🛏️","একটা ঘরে সে দেখল এক সুন্দরী রাজকন্যা ঘুমিয়ে আছে। তার পাশে একটা সোনার কাঠি আর একটা রুপোর কাঠি রাখা।"],
+ ["✨👸👀","রাজপুত্র কাঠি দুটি অদল-বদল করে ছুঁয়ে দিল। মুহূর্তে রাজকন্যা চোখ মেলল!"],
+ ["🏰🎉🤴","পুরো পুরী জেগে উঠল। সবাই রাজপুত্রকে ধন্যবাদ জানাল। সাহস আর ভালো মন থাকলে সব বাধা পার হওয়া যায়।"]]},
+{id:"char-bondhu",cat:"bn",lang:"bn",title:"চার বন্ধু",emoji:"🦌",color:"#d8f2e0",pages:[
+ ["🦌🐦‍⬛🐭🐢","এক বনে চার বন্ধু থাকত: হরিণ, কাক, ইঁদুর আর কচ্ছপ। তারা সবাই মিলেমিশে থাকত।"],
+ ["🦌🕸️😰","একদিন হরিণ শিকারির জালে আটকে গেল। কাক আর কচ্ছপ ছুটে এল, কিন্তু জাল কাটবে কে?"],
+ ["🐭✂️🕸️","কাক উড়ে গিয়ে ইঁদুরকে ডেকে আনল। ইঁদুর দাঁত দিয়ে কুটকুট করে জাল কেটে হরিণকে মুক্ত করল।"],
+ ["👤🦌🐢","এবার শিকারি কচ্ছপকে ধরল। বন্ধুরা বুদ্ধি আঁটল। হরিণ খোঁড়ার ভান করে শিকারিকে অন্য দিকে টেনে নিয়ে গেল।"],
+ ["🐭🐢🎉","সেই ফাঁকে ইঁদুর কচ্ছপের বাঁধন কেটে দিল। চার বন্ধু আবার একসাথে! সত্যিকারের বন্ধু বিপদে পাশে থাকে।"]]},
+{id:"nil-shiyal",cat:"bn",lang:"bn",title:"নীল শিয়াল",emoji:"🦊",color:"#cfe7ff",pages:[
+ ["🦊🌃🐕","এক রাতে এক শিয়াল খাবারের খোঁজে গ্রামে ঢুকল। কুকুরের দল তাড়া করল, সে ভয়ে ছুটতে লাগল।"],
+ ["🦊🎨💙","দৌড়াতে দৌড়াতে সে এক নীল রঙের গামলায় পড়ে গেল। উঠে এসে দেখল, তার গায়ের রং গাঢ় নীল!"],
+ ["🦊💙🌲","বনের সবাই নীল শিয়ালকে দেখে অবাক। সে বলল, “আমি তোমাদের নতুন রাজা!” সবাই তাকে ভয় করল।"],
+ ["🌕🐺🎶","একদিন পূর্ণিমার রাতে অন্য শিয়ালরা ডেকে উঠল। নীল শিয়ালও নিজের স্বভাবে হুক্কা-হুয়া করে ডেকে ফেলল!"],
+ ["🦊😳🌲","সবাই বুঝে গেল সে আসলে সাধারণ শিয়াল। নিজেকে ভান করে বড় সাজা ঠিক নয়। আসল পরিচয়েই সম্মান আসে।"]]},
+{id:"sot-kathure",cat:"bn",lang:"bn",title:"সৎ কাঠুরে",emoji:"🪓",color:"#ffeccc",pages:[
+ ["🪓🌲👨","এক গরিব কাঠুরে রোজ বনে কাঠ কাটত। সে খুব সৎ আর পরিশ্রমী ছিল।"],
+ ["🪓💦😢","একদিন নদীর ধারে কাজ করতে গিয়ে তার একমাত্র কুড়ুলটা জলে পড়ে গেল। সে খুব দুঃখ পেল।"],
+ ["💧🧚✨","তখন জলদেবী উঠে এলেন। তিনি একটা সোনার কুড়ুল দেখিয়ে বললেন, “এটা কি তোমার?” কাঠুরে বলল, “না।”"],
+ ["🪙🥈🪓","দেবী রুপোর কুড়ুল দেখালেন। কাঠুরে আবারও বলল, “না, আমার কুড়ুল লোহার, পুরনো।”"],
+ ["🪓🎁😊","দেবী খুশি হয়ে তার কুড়ুল ফিরিয়ে দিলেন, সঙ্গে সোনা আর রুপোর কুড়ুলও উপহার দিলেন। সততাই সবচেয়ে বড় সম্পদ।"]]},
+{id:"kak-o-shiyal",cat:"bn",lang:"bn",title:"কাক ও শিয়াল",emoji:"🐦‍⬛",color:"#ece4d8",pages:[
+ ["🐦‍⬛🍞🌳","এক কাক এক টুকরো রুটি পেয়ে গাছের ডালে বসে খেতে যাচ্ছিল।"],
+ ["🦊👀🍞","নিচ থেকে এক চালাক শিয়াল রুটিটা দেখে ফেলল। তার জিভে জল এসে গেল।"],
+ ["🦊🎵🐦‍⬛","শিয়াল বলল, “কাকভাই, তোমার পালক কী সুন্দর! শুনেছি তোমার গলাও নাকি খুব মিষ্টি। একটা গান শোনাও না!”"],
+ ["🐦‍⬛🎶😄","প্রশংসা শুনে কাক খুব খুশি। যেই সে “কা-কা” বলে গান ধরল, মুখ থেকে রুটিটা পড়ে গেল।"],
+ ["🦊🍞😋","শিয়াল রুটি নিয়ে দৌড় দিল। মিষ্টি কথায় ভুলে যেয়ো না। সব প্রশংসাই খাঁটি হয় না।"]]},
+{id:"birbal-khichdi",cat:"hi",lang:"hi",title:"बीरबल की खिचड़ी",emoji:"🍲",color:"#ffe9b0",pages:[
+ ["👑🥶🌙","सर्दी की एक रात बादशाह अकबर ने कहा, “जो आदमी रात भर ठंडे तालाब में खड़ा रहेगा, उसे इनाम मिलेगा।” एक गरीब आदमी तैयार हो गया।"],
+ ["🧍💧🕯️","वह पूरी रात पानी में खड़ा रहा। वह बस दूर महल के दीये की ओर देखता रहा, ताकि उसका मन लगा रहे।"],
+ ["👑😠🤷","सुबह बादशाह बोले, “तुमने दीये की गर्मी से ताप ली, इसलिए इनाम नहीं मिलेगा।” बेचारा आदमी बहुत दुखी हो गया।"],
+ ["🍲🔥🧠","बीरबल ने सुना तो एक ऊँचे डंडे पर खिचड़ी की हांडी लटका दी और नीचे दूर आग जलाई। वह बोला, “बस पक ही रही है!”"],
+ ["👑😮🤝","बादशाह हँसे, “इतनी दूर की आग से खिचड़ी कैसे पकेगी?” बीरबल ने कहा, “तो दूर के दीये से गर्मी कैसे मिलेगी?” बादशाह समझ गए और आदमी को इनाम दिया।"]]},
+{id:"chatur-khargosh",cat:"hi",lang:"hi",title:"चतुर खरगोश और शेर",emoji:"🐰",color:"#ffe0e8",pages:[
+ ["🦁🌲😠","एक घने जंगल में एक घमंडी शेर रहता था। वह सब जानवरों को बहुत परेशान करता था।"],
+ ["🐰🤔","एक दिन छोटे खरगोश की बारी आई। वह डरा नहीं। उसने एक तरकीब सोची और जानबूझकर देर से चला।"],
+ ["🦁😡🐰","भूखा शेर दहाड़ा, “इतनी देर क्यों?” खरगोश बोला, “महाराज, रास्ते में एक दूसरा शेर मिला। वह कहता है कि जंगल का राजा वही है!”"],
+ ["🕳️💧🦁","गुस्साए शेर ने कहा, “मुझे उसके पास ले चलो!” खरगोश उसे एक गहरे कुएँ के पास ले गया, जिसके पानी में शेर की परछाईं दिख रही थी।"],
+ ["🦁💦🎉","शेर ने परछाईं को दूसरा शेर समझा और दहाड़ते हुए कुएँ में कूद गया। जंगल के जानवर खुश हो गए। बुद्धि ताकत से बड़ी होती है।"]]},
+{id:"kabutar-aur-jaal",cat:"hi",lang:"hi",title:"कबूतर और जाल",emoji:"🕊️",color:"#e0ecff",pages:[
+ ["🕊️🕊️🌳","एक बड़े पेड़ पर कबूतरों का एक झुंड रहता था। उनका मुखिया बहुत समझदार था।"],
+ ["🌾🕸️🕊️","एक दिन उन्हें नीचे दाने बिखरे दिखे। वे सब उतरे और पल भर में शिकारी के जाल में फँस गए!"],
+ ["🕊️💪🕸️","मुखिया बोला, “घबराओ मत। अगर हम सब एक साथ ज़ोर लगाकर उड़ें, तो जाल लेकर उड़ सकते हैं!”"],
+ ["🕊️🕸️☁️","सब कबूतरों ने एक साथ उड़ान भरी और जाल को लेकर आसमान में उड़ गए। शिकारी देखता रह गया।"],
+ ["🐭✂️🕊️","वे अपने दोस्त चूहे के पास पहुँचे। चूहे ने जाल कुतर दिया और सब आज़ाद हो गए। एकता में बल है!"]]},
+{id:"sone-ka-anda",cat:"hi",lang:"hi",title:"सोने का अंडा देने वाली मुर्गी",emoji:"🐔",color:"#fff3b0",pages:[
+ ["🐔🥚✨","एक किसान के पास एक अनोखी मुर्गी थी। वह रोज़ एक सोने का अंडा देती थी।"],
+ ["👨‍🌾💰😊","अंडे बेचकर किसान धीरे-धीरे अमीर होने लगा। उसके घर में खुशियाँ आ गईं।"],
+ ["👨‍🌾🤑🤔","पर किसान लालची था। उसने सोचा, “रोज़ एक अंडे का इंतज़ार क्यों? मुर्गी के पेट में तो ढेर सारा सोना होगा!”"],
+ ["🐔😢🥚","लालच में आकर उसने मुर्गी के पेट में सोना खोजा, पर वहाँ कुछ भी नहीं था।"],
+ ["😭🪙❌","अब न मुर्गी रही, न रोज़ का सोना। किसान बहुत पछताया। लालच बुरी बला है।"]]},
+{id:"idgah",cat:"hi",lang:"hi",title:"ईदगाह",emoji:"🕌",color:"#d9f5ec",pages:[
+ ["🕌🌅👦","ईद का दिन था। चारों ओर खुशी थी। छोटा हामिद अपनी दादी अमीना के साथ रहता था और ईदगाह के मेले में जाने को बहुत उत्साहित था।"],
+ ["🎪🧸🍬","हामिद के दोस्तों ने मेले में मिठाइयाँ खरीदीं, खिलौने लिए और झूले झूले। हामिद के पास सिर्फ़ तीन पैसे थे।"],
+ ["🍞🔥👵","हामिद ने सोचा कि रोटी सेंकते समय दादी का हाथ तवे से जल जाता है। “मैं दादी के लिए कुछ ऐसा लूँगा जो उनके काम आए।”"],
+ ["🔧😄🧒","उसने तीन पैसे में एक चिमटा खरीद लिया! दोस्त हँसे, “अरे, यह भी कोई खिलौना है?” हामिद ने समझदारी से जवाब दिया, “मेरा चिमटा तुम्हारे खिलौनों से बढ़िया है!”"],
+ ["👵😭💛","घर लौटकर हामिद ने दादी को चिमटा दिया। दादी की आँखें भर आईं। यह कहानी प्रेमचंद की प्रसिद्ध कहानी ‘ईदगाह’ पर आधारित है।"]]},
+{id:"lalchi-kutta",cat:"hi",lang:"hi",title:"लालची कुत्ता",emoji:"🐕",color:"#ffe6d0",pages:[
+ ["🐕🦴😋","एक कुत्ते को कहीं से एक बड़ी हड्डी मिल गई। वह उसे लेकर चुपचाप घर की ओर चल पड़ा।"],
+ ["🐕🌉💧","रास्ते में एक छोटा-सा पुल था। पुल के नीचे साफ़ पानी बह रहा था।"],
+ ["🐕👀🪞","कुत्ते ने पानी में झाँका तो उसे अपनी परछाईं दिखी। उसने सोचा, “अरे, दूसरे कुत्ते के पास भी हड्डी है!”"],
+ ["🐕😠🦴","लालच में आकर उसने दूसरी हड्डी छीनने के लिए भौंकने को मुँह खोला। छपाक! उसकी अपनी हड्डी पानी में गिर गई।"],
+ ["🐕😢💧","हड्डी पानी में बह गई। कुत्ता खाली मुँह घर लौटा। जो हमारे पास है, उसी में खुश रहना चाहिए।"]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
 if(!TTS)document.getElementById("speak").style.display="none";
 function drawGrid(){grid.innerHTML="";BOOKS.forEach(function(b){if(filter!=="all"&&b.cat!==filter)return;
- var el=document.createElement("button");el.className="book";el.setAttribute("aria-label","Read "+b.title);
+ var el=document.createElement("button");el.className="book";el.lang=b.lang||"en";el.setAttribute("aria-label","Read "+b.title);
  el.innerHTML='<div class="cover" style="background:'+b.color+'">'+b.emoji+'</div><b>'+b.title+'</b>';
  el.onclick=function(){location.hash=b.id};grid.appendChild(el)})}
 function drawChips(){chipsEl.innerHTML="";CATS.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c[0]===filter?" on":"");b.textContent=c[1];
  b.onclick=function(){filter=c[0];drawChips();drawGrid()};chipsEl.appendChild(b)})}
 function stopSpeech(){if(TTS)speechSynthesis.cancel();document.getElementById("speak").textContent="🔊"}
 function speak(){if(!TTS||!cur)return;if(speechSynthesis.speaking){stopSpeech();return}
- var u=new SpeechSynthesisUtterance(cur.pages[pg][1].replace(/✨/g,""));u.rate=.85;u.pitch=1.1;u.onend=function(){document.getElementById("speak").textContent="🔊"};
+ var u=new SpeechSynthesisUtterance(cur.pages[pg][1].replace(/✨/g,""));u.rate=.85;if(cur.lang)u.lang=cur.lang==="bn"?"bn-IN":"hi-IN";u.pitch=1.1;u.onend=function(){document.getElementById("speak").textContent="🔊"};
  document.getElementById("speak").textContent="⏹";speechSynthesis.speak(u)}
 function render(){
  stopSpeech();var h=location.hash.replace("#","");cur=BOOKS.filter(function(b){return b.id===h})[0]||null;
@@ -177,9 +251,9 @@ function render(){
  home.style.display="none";reader.style.display="flex";document.title=cur.title;pg=0;show()}
 function show(){
  stopSpeech();var p=cur.pages[pg],n=cur.pages.length;
- document.getElementById("title").textContent=cur.title;
+ var ti=document.getElementById("title");ti.lang=cur.lang||"en";ti.textContent=cur.title;
  document.getElementById("scene").textContent=p[0];
- document.getElementById("text").textContent=p[1]+(pg===n-1?"  ✨ The End ✨":"");
+ var L=cur.lang||"en",E=({bn:"সমাপ্ত",hi:"समाप्त"})[L]||"The End",tx=document.getElementById("text");tx.lang=L;tx.textContent=p[1]+(pg===n-1?"  ✨ "+E+" ✨":"");
  document.getElementById("prev").disabled=pg===0;
  document.getElementById("next").textContent=pg===n-1?"Library 📚":"Next ▶";
  var d="";for(var i=0;i<n;i++)d+='<i class="'+(i===pg?"on":"")+'"></i>';document.getElementById("dots").innerHTML=d}
