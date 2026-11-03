@@ -52,7 +52,7 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["bn","বাংলা"],["hi","हिन्दी"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["rhymes","🎵 Rhymes"],["bn","বাংলা"],["hi","हिन्दी"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -274,6 +274,27 @@ var BOOKS=[
  ["⭐⭐⭐⭐⭐\n🐞🐞🐞🐞🐞🐞","५ (5) – पाँच\n६ (6) – छह","nl"],
  ["🎈🎈🎈🎈🎈🎈🎈\n🍓🍓🍓🍓🍓🍓🍓🍓","७ (7) – सात\n८ (8) – आठ","nl"],
  ["🦋🦋🦋🦋🦋🦋🦋🦋🦋\n🐥🐥🐥🐥🐥🐥🐥🐥🐥🐥","९ (9) – नौ\n१० (10) – दस","nl"]]}
+,{id:"rhymes-english",cat:"rhymes",title:"Nursery Rhymes",emoji:"🎵",color:"#ffe3b3",pages:[
+ ["⭐🌙✨","Twinkle, Twinkle, Little Star\n\nTwinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.","l"],
+ ["🥚🧱👑","Humpty Dumpty\n\nHumpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall.\nAll the king’s horses and all the king’s men\nCouldn’t put Humpty together again.","l"],
+ ["⛰️🪣👦👧","Jack and Jill\n\nJack and Jill went up the hill\nTo fetch a pail of water.\nJack fell down and broke his crown,\nAnd Jill came tumbling after.","l"],
+ ["🐑🧶🖤","Baa, Baa, Black Sheep\n\nBaa, baa, black sheep, have you any wool?\nYes sir, yes sir, three bags full.\nOne for the master, and one for the dame,\nAnd one for the little boy who lives down the lane.","l"],
+ ["🐭⏰🕐","Hickory Dickory Dock\n\nHickory, dickory, dock,\nThe mouse ran up the clock.\nThe clock struck one,\nThe mouse ran down,\nHickory, dickory, dock.","l"],
+ ["🐑❄️🏫","Mary Had a Little Lamb\n\nMary had a little lamb,\nIts fleece was white as snow;\nAnd everywhere that Mary went\nThe lamb was sure to go.","l"]]},
+{id:"rhymes-hindi",cat:"rhymes",lang:"hi",title:"हिन्दी बाल गीत",emoji:"🎶",color:"#ffe0ec",pages:[
+ ["🥔🐒🛖","आलू कचालू\n\nआलू कचालू बेटा कहाँ गए थे,\nबंदर की झोपड़ी में सो रहे थे।\nबंदर ने लात मारी रो पड़े थे,\nमम्मी ने प्यार किया हँस पड़े थे।","l"],
+ ["🌙🍽️🥣","चंदा मामा\n\nचंदा मामा दूर के,\nपुए पकाए बूर के।\nआप खाएँ थाली में,\nमुन्ने को दें प्याली में।","l"],
+ ["🌧️⛵🌈","बारिश आई\n\nछम-छम-छम बारिश आई,\nबादल गरजे, बिजली छाई।\nकाग़ज़ की मैं नाव बनाऊँ,\nपानी में उसको तैराऊँ।","l"],
+ ["🦋🌸🌼","तितली रानी\n\nतितली रानी, तितली रानी,\nरंग-बिरंगी, बड़ी सयानी।\nफूल-फूल पर तुम मँडराती,\nमीठे-मीठे गीत सुनाती।","l"],
+ ["🐦🌾🏠","प्यारी चिड़िया\n\nचीं-चीं करती चिड़िया आई,\nदाना चुगने चोंच बढ़ाई।\nफुर्र से उड़ी आसमान में,\nगीत सुनाए हर मकान में।","l"],
+ ["🌅☀️🐓","सूरज दादा\n\nसूरज दादा रोज़ आते,\nसोने वालों को जगाते।\nकलियाँ खिलतीं, चिड़ियाँ गातीं,\nनई सुबह की ख़बर सुनातीं।","l"]]},
+{id:"chhora-bangla",cat:"rhymes",lang:"bn",title:"বাংলা ছড়া",emoji:"🎼",color:"#d9f0e6",pages:[
+ ["🌙👶🌟","আয় আয় চাঁদ মামা\n\nআয় আয় চাঁদ মামা টিপ দিয়ে যা,\nচাঁদের কপালে চাঁদ টিপ দিয়ে যা।\nমাছ কাটলে মুড়ো দেব,\nধান ভানলে কুঁড়ো দেব।","l"],
+ ["🦜🌳🍃","আতা গাছে তোতা পাখি\n\nআতা গাছে তোতা পাখি,\nডালিম গাছে মউ।\nএত ডাকি তবু কেন\nকথা কয় না বউ।","l"],
+ ["🌧️⛵🌈","ঝম ঝম বৃষ্টি\n\nঝম ঝম ঝম বৃষ্টি এল,\nআকাশ জুড়ে মেঘ জমল।\nকাগজ-নৌকা ভাসাই জলে,\nহাসি ফোটে সবার গালে।","l"],
+ ["🦋🌼🌺","প্রজাপতি\n\nপ্রজাপতি, প্রজাপতি,\nরঙিন ডানা মেলো,\nফুলের বনে ঘুরে ঘুরে\nআমার সঙ্গে খেলো।","l"],
+ ["🌅🐦🌿","ভোর হল রে\n\nভোর হল রে, ভোর হল,\nপাখিরা সব গান ধরল।\nসূর্য মামা উঠল হেসে,\nসবাই জাগে নতুন বেশে।","l"],
+ ["🌙😴⭐","ঘুমের গান\n\nঘুম ঘুম ঘুম, খোকন ঘুম,\nরাত হয়েছে, সবাই নিঝুম।\nতারারা সব মিটমিটিয়ে,\nদেখছে তোমায় আদর দিয়ে।","l"]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
