@@ -258,7 +258,7 @@ function show(){
  document.getElementById("next").textContent=pg===n-1?"Library 📚":"Next ▶";
  var d="";for(var i=0;i<n;i++)d+='<i class="'+(i===pg?"on":"")+'"></i>';document.getElementById("dots").innerHTML=d}
 function go(d){if(!cur)return;var n=pg+d;if(n>=cur.pages.length){home_();return}if(n<0)return;pg=n;show()}
-function home_(){stopSpeech();history.replaceState(null,"",location.pathname+location.search);render()}
+function home_(){stopSpeech();try{history.replaceState(null,"",location.pathname+location.search)}catch(e){try{location.hash=""}catch(e2){}}render()}
 document.getElementById("prev").onclick=function(){go(-1)};
 document.getElementById("next").onclick=function(){go(1)};
 document.getElementById("back").onclick=home_;
