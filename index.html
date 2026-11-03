@@ -34,6 +34,9 @@ button.btn:disabled{opacity:.35;cursor:default}
 .dots{display:flex;gap:8px}.dots i{width:10px;height:10px;border-radius:50%;background:var(--muted);opacity:.4}.dots i.on{background:var(--accent);opacity:1;transform:scale(1.3)}
 .text:lang(bn),.text:lang(hi){line-height:1.9}
 .book b:lang(bn),.book b:lang(hi),#title:lang(bn),#title:lang(hi){line-height:1.5}
+.scene.sm{font-size:clamp(1.5rem,7.5vw,3rem);line-height:1.5;white-space:pre-line;letter-spacing:.04em}
+.text.list{white-space:pre-line;font-size:clamp(1.05rem,3.8vw,1.35rem);line-height:1.6;text-align:left;width:fit-content;max-width:100%;margin:0 auto}
+.text.list:lang(bn),.text.list:lang(hi){line-height:1.75}
 </style>
 </head>
 <body>
@@ -49,7 +52,7 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["bn","বাংলা"],["hi","हिन्दी"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["bn","বাংলা"],["hi","हिन्दी"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -231,6 +234,46 @@ var BOOKS=[
  ["🐕👀🪞","कुत्ते ने पानी में झाँका तो उसे अपनी परछाईं दिखी। उसने सोचा, “अरे, दूसरे कुत्ते के पास भी हड्डी है!”"],
  ["🐕😠🦴","लालच में आकर उसने दूसरी हड्डी छीनने के लिए भौंकने को मुँह खोला। छपाक! उसकी अपनी हड्डी पानी में गिर गई।"],
  ["🐕😢💧","हड्डी पानी में बह गई। कुत्ता खाली मुँह घर लौटा। जो हमारे पास है, उसी में खुश रहना चाहिए।"]]}
+,{id:"abc-english",cat:"learn",title:"ABC: English Alphabet",emoji:"🔤",color:"#ffe0b2",pages:[
+ ["🍎⚽🐱🐶🐘","Aa is for Apple 🍎\nBb is for Ball ⚽\nCc is for Cat 🐱\nDd is for Dog 🐶\nEe is for Elephant 🐘","l"],
+ ["🐟🍇👒🍦🧃","Ff is for Fish 🐟\nGg is for Grapes 🍇\nHh is for Hat 👒\nIi is for Ice cream 🍦\nJj is for Juice 🧃","l"],
+ ["🪁🦁🌙🪺🍊","Kk is for Kite 🪁\nLl is for Lion 🦁\nMm is for Moon 🌙\nNn is for Nest 🪺\nOo is for Orange 🍊","l"],
+ ["🦜👸🌈☀️🌳","Pp is for Parrot 🦜\nQq is for Queen 👸\nRr is for Rainbow 🌈\nSs is for Sun ☀️\nTt is for Tree 🌳","l"],
+ ["☂️🚐⌚🎶🪀🦓","Uu is for Umbrella ☂️\nVv is for Van 🚐\nWw is for Watch ⌚\nXx is for Xylophone 🎶\nYy is for Yo-yo 🪀\nZz is for Zebra 🦓","l"]]},
+{id:"abc-bangla",cat:"learn",lang:"bn",title:"বর্ণমালা",emoji:"অ আ",color:"#ffd9e8",pages:[
+ ["🐍🥭🐭🦅🐪","অ – অজগর 🐍\nআ – আম 🥭\nই – ইঁদুর 🐭\nঈ – ঈগল 🦅\nউ – উট 🐪","l"],
+ ["🌅🧘🎸🐘🍠💊","ঊ – ঊষা 🌅\nঋ – ঋষি 🧘\nএ – একতারা 🎸\nঐ – ঐরাবত 🐘\nও – ওল 🍠\nঔ – ঔষধ 💊","l"],
+ ["🍌🐰🐄⏰🌙☂️🚢","ক – কলা 🍌\nখ – খরগোশ 🐰\nগ – গরু 🐄\nঘ – ঘড়ি ⏰\nঙ\nচ – চাঁদ 🌙\nছ – ছাতা ☂️\nজ – জাহাজ 🚢","l"],
+ ["🐚🦜🛍️🥚🥁⭐","ঝ – ঝিনুক 🐚\nঞ\nট – টিয়া 🦜\nঠ – ঠোঙা 🛍️\nড – ডিম 🥚\nঢ – ঢাক 🥁\nণ\nত – তারা ⭐","l"],
+ ["🍽️🚪🌾⛵🐦🌸🐯🐻","থ – থালা 🍽️\nদ – দরজা 🚪\nধ – ধান 🌾\nন – নৌকা ⛵\nপ – পাখি 🐦\nফ – ফুল 🌸\nব – বাঘ 🐯\nভ – ভালুক 🐻","l"],
+ ["🐟👑🌶️🥒🐂☀️🐘","ম – মাছ 🐟\nয\nর – রাজা 👑\nল – লঙ্কা 🌶️\nশ – শশা 🥒\nষ – ষাঁড় 🐂\nস – সূর্য ☀️\nহ – হাতি 🐘","l"],
+ ["🔤✨","ড়   ঢ়   য়   ৎ   ং   ঃ   ঁ\n\nএই বর্ণগুলোও বাংলা বর্ণমালার অংশ। ঙ, ঞ, ণ সাধারণত শব্দের মাঝে বা শেষে বসে।","l"]]},
+{id:"varnamala-hindi",cat:"learn",lang:"hi",title:"वर्णमाला",emoji:"अ आ",color:"#d9ecff",pages:[
+ ["🍎🥭🫘🎋🦉","अ – अनार 🍎\nआ – आम 🥭\nइ – इमली 🫘\nई – ईख 🎋\nउ – उल्लू 🦉","l"],
+ ["🧶🧘1️⃣👓💧🔧🍇","ऊ – ऊन 🧶\nऋ – ऋषि 🧘\nए – एक 1️⃣\nऐ – ऐनक 👓\nओ – ओस 💧\nऔ – औज़ार 🔧\nअं – अंगूर 🍇\nअः","l"],
+ ["🌸🐰🐄⏰🥄☂️🚢","क – कमल 🌸\nख – खरगोश 🐰\nग – गाय 🐄\nघ – घड़ी ⏰\nङ\nच – चम्मच 🥄\nछ – छाता ☂️\nज – जहाज़ 🚢","l"],
+ ["🚩🍅🛒🥁🍉","झ – झंडा 🚩\nञ\nट – टमाटर 🍅\nठ – ठेला 🛒\nड – डमरू 🥁\nढ – ढोलक 🥁\nण\nत – तरबूज़ 🍉","l"],
+ ["👜🚪🏹🚰🪁🌸🦆🐻","थ – थैला 👜\nद – दरवाज़ा 🚪\nध – धनुष 🏹\nन – नल 🚰\nप – पतंग 🪁\nफ – फूल 🌸\nब – बत्तख 🦆\nभ – भालू 🐻","l"],
+ ["🐟🌊🫓🟠🌳🦁🔷🍏","म – मछली 🐟\nय – यमुना 🌊\nर – रोटी 🫓\nल – लड्डू 🟠\nव – वन 🌳\nश – शेर 🦁\nष – षट्कोण 🔷\nस – सेब 🍏","l"],
+ ["🐘🙏🔱📖","ह – हाथी 🐘\nक्ष – क्षमा 🙏\nत्र – त्रिशूल 🔱\nज्ञ – ज्ञानी 📖","l"]]},
+{id:"count-english",cat:"learn",title:"Counting 1 to 10",emoji:"🔢",color:"#d8f2e0",pages:[
+ ["🍎\n🐱🐱","1 – One\n2 – Two","nl"],
+ ["🐟🐟🐟\n🌸🌸🌸🌸","3 – Three\n4 – Four","nl"],
+ ["⭐⭐⭐⭐⭐\n🐞🐞🐞🐞🐞🐞","5 – Five\n6 – Six","nl"],
+ ["🎈🎈🎈🎈🎈🎈🎈\n🍓🍓🍓🍓🍓🍓🍓🍓","7 – Seven\n8 – Eight","nl"],
+ ["🦋🦋🦋🦋🦋🦋🦋🦋🦋\n🐥🐥🐥🐥🐥🐥🐥🐥🐥🐥","9 – Nine\n10 – Ten","nl"]]},
+{id:"ginti-bangla",cat:"learn",lang:"bn",title:"সংখ্যা শিখি",emoji:"১২৩",color:"#ffeccc",pages:[
+ ["🍎\n🐱🐱","১ (1) – এক\n২ (2) – দুই","nl"],
+ ["🐟🐟🐟\n🌸🌸🌸🌸","৩ (3) – তিন\n৪ (4) – চার","nl"],
+ ["⭐⭐⭐⭐⭐\n🐞🐞🐞🐞🐞🐞","৫ (5) – পাঁচ\n৬ (6) – ছয়","nl"],
+ ["🎈🎈🎈🎈🎈🎈🎈\n🍓🍓🍓🍓🍓🍓🍓🍓","৭ (7) – সাত\n৮ (8) – আট","nl"],
+ ["🦋🦋🦋🦋🦋🦋🦋🦋🦋\n🐥🐥🐥🐥🐥🐥🐥🐥🐥🐥","৯ (9) – নয়\n১০ (10) – দশ","nl"]]},
+{id:"ginti-hindi",cat:"learn",lang:"hi",title:"गिनती सीखें",emoji:"१२३",color:"#e5ddff",pages:[
+ ["🍎\n🐱🐱","१ (1) – एक\n२ (2) – दो","nl"],
+ ["🐟🐟🐟\n🌸🌸🌸🌸","३ (3) – तीन\n४ (4) – चार","nl"],
+ ["⭐⭐⭐⭐⭐\n🐞🐞🐞🐞🐞🐞","५ (5) – पाँच\n६ (6) – छह","nl"],
+ ["🎈🎈🎈🎈🎈🎈🎈\n🍓🍓🍓🍓🍓🍓🍓🍓","७ (7) – सात\n८ (8) – आठ","nl"],
+ ["🦋🦋🦋🦋🦋🦋🦋🦋🦋\n🐥🐥🐥🐥🐥🐥🐥🐥🐥🐥","९ (9) – नौ\n१० (10) – दस","nl"]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
@@ -243,7 +286,7 @@ function drawChips(){chipsEl.innerHTML="";CATS.forEach(function(c){var b=documen
  b.onclick=function(){filter=c[0];drawChips();drawGrid()};chipsEl.appendChild(b)})}
 function stopSpeech(){if(TTS)speechSynthesis.cancel();document.getElementById("speak").textContent="🔊"}
 function speak(){if(!TTS||!cur)return;if(speechSynthesis.speaking){stopSpeech();return}
- var u=new SpeechSynthesisUtterance(cur.pages[pg][1].replace(/✨/g,""));u.rate=.85;if(cur.lang)u.lang=cur.lang==="bn"?"bn-IN":"hi-IN";u.pitch=1.1;u.onend=function(){document.getElementById("speak").textContent="🔊"};
+ var u=new SpeechSynthesisUtterance(cur.pages[pg][1].replace(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF\uFE0F\u200D\u20E3✨]/gu,""));u.rate=.85;if(cur.lang)u.lang=cur.lang==="bn"?"bn-IN":"hi-IN";u.pitch=1.1;u.onend=function(){document.getElementById("speak").textContent="🔊"};
  document.getElementById("speak").textContent="⏹";speechSynthesis.speak(u)}
 function render(){
  stopSpeech();var h=location.hash.replace("#","");cur=BOOKS.filter(function(b){return b.id===h})[0]||null;
@@ -252,8 +295,8 @@ function render(){
 function show(){
  stopSpeech();var p=cur.pages[pg],n=cur.pages.length;
  var ti=document.getElementById("title");ti.lang=cur.lang||"en";ti.textContent=cur.title;
- document.getElementById("scene").textContent=p[0];
- var L=cur.lang||"en",E=({bn:"সমাপ্ত",hi:"समाप्त"})[L]||"The End",tx=document.getElementById("text");tx.lang=L;tx.textContent=p[1]+(pg===n-1?"  ✨ "+E+" ✨":"");
+ var sc=document.getElementById("scene"),F=p[2]||"";sc.className="scene"+(F.indexOf("n")>-1?" sm":"");sc.textContent=p[0];
+ var L=cur.lang||"en",E=({bn:"সমাপ্ত",hi:"समाप्त"})[L]||"The End",tx=document.getElementById("text");tx.lang=L;tx.className="text"+(F.indexOf("l")>-1?" list":"");tx.textContent=p[1]+(pg===n-1?(F?"\n\n":"  ")+"✨ "+E+" ✨":"");
  document.getElementById("prev").disabled=pg===0;
  document.getElementById("next").textContent=pg===n-1?"Library 📚":"Next ▶";
  var d="";for(var i=0;i<n;i++)d+='<i class="'+(i===pg?"on":"")+'"></i>';document.getElementById("dots").innerHTML=d}
