@@ -12,8 +12,6 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-fa
 *{box-sizing:border-box}
 h1{text-align:center;margin:12px 12px 4px;font-size:clamp(1.6rem,6vw,2.4rem)}
 .sub{text-align:center;color:var(--muted);margin:0 12px 12px}
-.top{max-width:820px;margin:0 auto;padding:12px 18px 0}
-.top a{color:var(--ink);text-decoration:none;font-weight:700;background:var(--card);padding:8px 14px;border-radius:999px;box-shadow:0 3px 8px var(--shadow);display:inline-block}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 12px 14px}
 .chip{border:2px solid var(--accent);background:var(--card);color:var(--ink);border-radius:999px;font:inherit;font-weight:700;padding:6px 14px;cursor:pointer}
 .chip.on{background:var(--accent);color:#2b1a05}
@@ -37,14 +35,45 @@ button.btn:disabled{opacity:.35;cursor:default}
 .scene.sm{font-size:clamp(1.5rem,7.5vw,3rem);line-height:1.5;white-space:pre-line;letter-spacing:.04em}
 .text.list{white-space:pre-line;font-size:clamp(1.05rem,3.8vw,1.35rem);line-height:1.6;text-align:left;width:fit-content;max-width:100%;margin:0 auto}
 .text.list:lang(bn),.text.list:lang(hi){line-height:1.75}
+#drawer{display:none;max-width:980px;margin:0 auto;padding:10px 12px 24px;flex-direction:column;gap:10px}
+.dbar{display:flex;align-items:center;gap:10px}.dbar h2{margin:0;flex:1;text-align:center;font-size:1.1rem}
+.pill{background:var(--card);padding:6px 12px;border-radius:999px;font-weight:700;box-shadow:0 3px 8px var(--shadow);font-size:.9rem;white-space:nowrap}
+#ddots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+#ddots span{width:30px;height:30px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;cursor:pointer;border:2px solid transparent;box-shadow:0 2px 5px var(--shadow)}
+#ddots span.done{background:#7bd88f;color:#13361b}#ddots span.cur{border-color:var(--accent)}
+.spread{display:grid;grid-template-columns:1fr 1fr;border-radius:22px;box-shadow:0 8px 20px var(--shadow);overflow:hidden;background:var(--card)}
+.dleft{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center;border-right:3px dashed rgba(128,128,128,.35);gap:6px}
+.dpic{font-size:clamp(5rem,22vw,10rem);line-height:1.1}
+.dnames small{display:block;color:var(--muted);font-weight:700}.dnames b{display:block;font-size:1.5rem}.dnames span{display:block;font-size:1.15rem;color:var(--muted);line-height:1.6}
+.dright{padding:10px;display:flex;align-items:center;justify-content:center}
+#cv{width:100%;max-width:560px;aspect-ratio:1/1;background:#fff;border-radius:12px;touch-action:none;cursor:crosshair;box-shadow:inset 0 0 0 2px rgba(0,0,0,.08)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;background:var(--card);padding:10px;border-radius:16px;box-shadow:0 4px 12px var(--shadow)}
+.tgroup{display:flex;gap:6px;align-items:center}
+.tb{border:2px solid transparent;background:var(--bg);color:var(--ink);border-radius:12px;min-width:42px;height:42px;font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.tb.on{border-color:var(--accent);background:var(--card)}
+.tb i{display:block;background:var(--ink);border-radius:50%}
+.pal{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:360px;align-items:center}
+.sw{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.3);cursor:pointer;padding:0}.sw.on{box-shadow:0 0 0 3px var(--accent)}
+#pick{width:34px;height:34px;border:0;padding:0;background:none;cursor:pointer}
+.dnav{display:flex;justify-content:space-between;gap:8px}
+button.btn.done{background:#59c46f;color:#0e2d15}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.mbox{background:var(--card);color:var(--ink);border-radius:22px;padding:22px;max-width:360px;width:100%;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.mstars{font-size:2.6rem}.mscore{font-size:1.6rem;font-weight:800;margin:4px 0}.mbtns{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}.mbox small{color:var(--muted)}
+@media(max-width:700px){.spread{grid-template-columns:1fr}.dleft{border-right:0;border-bottom:3px dashed rgba(128,128,128,.35);flex-direction:row;gap:14px;padding:8px}.dpic{font-size:4.5rem}.dnames b{font-size:1.2rem}.dnames span{font-size:1rem;line-height:1.4}}
+.chips.langs{padding-top:0}
+.chip.lang{border-color:#1e6fe0;background:#e3efff;color:#0b3a8a}
+.chip.lang.on{background:#1e6fe0;border-color:#1e6fe0;color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.lang{background:#16305c;color:#cfe2ff;border-color:#4d8ff0}:root:not([data-theme="light"]) .chip.lang.on{background:#3b82f6;border-color:#3b82f6;color:#fff}}
+:root[data-theme="dark"] .chip.lang{background:#16305c;color:#cfe2ff;border-color:#4d8ff0}:root[data-theme="dark"] .chip.lang.on{background:#3b82f6;border-color:#3b82f6;color:#fff}
 </style>
 </head>
 <body>
 <main id="home">
-  <div class="top"><a href="home.html">🏠 Home</a></div>
-    <h1>📚 Little Story Nook</h1>
+  <h1>📚 Little Story Nook</h1>
   <p class="sub">Tap a book to start reading</p>
   <div class="chips" id="chips"></div>
+  <div class="chips langs" id="lchips"></div>
   <div class="grid" id="grid"></div>
 </main>
 <section id="reader" aria-live="polite">
@@ -52,8 +81,25 @@ button.btn:disabled{opacity:.35;cursor:default}
   <div class="page"><div class="scene" id="scene"></div><div class="text" id="text"></div></div>
   <div class="nav"><button class="btn" id="prev">◀ Previous</button><div class="dots" id="dots"></div><button class="btn" id="next">Next ▶</button></div>
 </section>
+<section id="drawer">
+  <div class="dbar"><button class="btn" id="dback">← Back</button><h2 id="dtitle"></h2><span class="pill" id="dscore"></span></div>
+  <div id="ddots"></div>
+  <div class="spread">
+    <div class="dleft"><div class="dpic" id="dpic"></div><div class="dnames" id="dnames"></div></div>
+    <div class="dright"><canvas id="cv" width="600" height="600" aria-label="Drawing page"></canvas></div>
+  </div>
+  <div class="tools">
+    <div class="tgroup"><button class="tb on" data-tool="brush" title="Brush">✏️</button><button class="tb" data-tool="eraser" title="Eraser">🧽</button><button class="tb" data-tool="fill" title="Fill with colour">🪣</button></div>
+    <div class="tgroup"><button class="tb on" data-size="6" title="Thin"><i style="width:6px;height:6px"></i></button><button class="tb" data-size="14" title="Medium"><i style="width:12px;height:12px"></i></button><button class="tb" data-size="28" title="Thick"><i style="width:20px;height:20px"></i></button></div>
+    <div class="pal" id="pal"></div>
+    <div class="tgroup"><button class="tb" id="dundo" title="Undo">↩️</button><button class="tb" id="dclear" title="Clear page">🗑️</button><button class="tb" id="dsave" title="Save picture">💾</button></div>
+  </div>
+  <div class="dnav"><button class="btn" id="dprev">◀ Previous</button><button class="btn done" id="ddone">✔ Done</button><button class="btn" id="dnext">Next ▶</button></div>
+  <div class="ov" id="modal"><div class="mbox" id="mbox"></div></div>
+</section>
 <script>
-var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["rhymes","🎵 Rhymes"],["en","English"],["bn","বাংলা"],["hi","हिन्दी"]];
+var CATS=[["all","⭐ All"],["lessons","🌟 Lessons"],["kindness","💛 Kindness"],["bedtime","🌙 Bedtime"],["fairy","🧚 Fairy Tales"],["learn","🔤 Learn"],["rhymes","🎵 Rhymes"],["adventure","🧭 Adventure"],["animals","🐾 Animals"],["festivals","🪔 Festivals"],["school","🎒 School"],["draw","🎨 Draw"]];
+var LANGS=[["en","English"],["bn","বাংলা"],["hi","हिन्दी"]];
 var BOOKS=[
 {id:"tortoise-and-hare",cat:"lessons",title:"The Tortoise and the Hare",emoji:"🐢",color:"#c8f0c0",pages:[
  ["🐇💨 🐢","A speedy hare liked to boast, “Nobody can run as fast as me!” A slow, kind tortoise smiled and said, “Let’s have a race.”"],
@@ -359,6 +405,201 @@ var BOOKS=[
  ["🐰🥕🌿","লাফ দিয়ে খরগোশ\n\nলাফ দিয়ে লাফ, খরগোশ আসে,\nগাজর দেখে মিটিমিটি হাসে।\nকুটুস কুটুস গাজর খায়,\nআনন্দে সে নেচে যায়।","l"],
  ["🌆🐦⭐","সন্ধ্যা নামে\n\nসন্ধ্যা নামে, সন্ধ্যা নামে,\nপাখিরা সব বাসায় থামে।\nতারার প্রদীপ জ্বলে আকাশে,\nঘুম নেমে আসে সবার পাশে।","l"],
  ["🌙🧚💤","ঘুমের পরী\n\nঘুম আয় রে, ঘুম আয় রে,\nচাঁদের দেশে পরী ডাকে।\nসোনার নৌকায় চড়ে বসো,\nস্বপ্ন-নদীর বাঁকে বাঁকে।","l"]]}
+,{id:"treasure-map",cat:"adventure",title:"The Treasure Map",emoji:"🗺️",color:"#ffe9b8",pages:[
+ ["📖🗺️👧","Mia and her brother Leo found an old map inside a dusty book. A big red X was drawn near the old mango tree."],
+ ["🚶🌳🐿️","They followed the map past the pond and through the tall grass. A friendly squirrel showed them the way."],
+ ["🪨🐸🤝","At the stream, the stepping stones were slippery. Leo held Mia’s hand, and they crossed one careful step at a time."],
+ ["⛏️🌳📦","Under the mango tree, they dug and found a small wooden box. Inside was a note: “The best treasure is the one you share.”"],
+ ["🌱🧒🧒🌳","The box was full of seeds! The children planted them with their friends, and soon a garden of flowers bloomed for everyone."]]},
+{id:"paper-boat",cat:"adventure",title:"The Paper Boat’s Big Journey",emoji:"⛵",color:"#d6ecff",pages:[
+ ["📄⛵👦","Raj folded a little paper boat and set it on a puddle after the rain. “Sail far, little boat!” he said."],
+ ["🌧️🌊⛵","The rain made a small stream, and the boat floated away past the garden, the road and the old bridge."],
+ ["🐸🐟⛵","Frogs waved and fish swam beside it. The boat bobbed up and down, never giving up."],
+ ["🌉🏞️⛵","It sailed under a big bridge and into a wide, sparkling river, drifting toward the faraway sea."],
+ ["🌅🌊😊","Raj ran along the bank, smiling. “My little boat is having a big adventure!” Even small things can travel far."]]},
+{id:"glowing-cave",cat:"adventure",title:"The Cave of Glowing Stars",emoji:"🕳️",color:"#e0d8ff",pages:[
+ ["🔦🧒🧒⛰️","Sam and Tara went hiking with their torch and found a dark cave in the hillside. “Let’s explore, carefully!” said Tara."],
+ ["🕳️🔦👣","Inside, it was cool and quiet. Their torch lit the wet walls as they stepped slowly forward."],
+ ["✨🌌😮","Suddenly, the ceiling twinkled with hundreds of tiny blue lights! They were glow-worms, shining like stars."],
+ ["🦇🥺🧒","A little bat was lost and squeaking. Sam gently pointed their torch toward the cave mouth, and the bat flew out into the evening."],
+ ["🌙🏡😊","The children walked home under the real stars, glad they had been brave, careful and kind."]]},
+{id:"cardboard-rocket",cat:"adventure",title:"The Cardboard Rocket",emoji:"🚀",color:"#ffd9d9",pages:[
+ ["📦🎨👧","Nina found a big cardboard box and painted it silver. “This is my rocket!” she said, and climbed inside."],
+ ["🔟🚀🔥","“Ten, nine, eight…” counted Nina. “Three, two, one, blast off!” Her rocket zoomed into the sky of her imagination."],
+ ["🌙🧑‍🚀🪨","She landed on the Moon and bounced around in big, slow jumps. She picked up a small grey stone."],
+ ["🌍⭐🛰️","Nina looked back and saw the blue Earth, shining like a marble. “Home is so beautiful,” she whispered."],
+ ["🏠📦😴","“Time to go home!” Back in the garden, Nina yawned. Her moon stone sat on the shelf, a reminder of her wonderful adventure."]]},
+{id:"jungle-bridge",cat:"adventure",title:"The Jungle Bridge",emoji:"🌉",color:"#d3f0d3",pages:[
+ ["🌴🐵🏞️","In a green jungle, a wide river split the forest in two. Little Bandar the monkey wanted to visit his grandmother on the other side."],
+ ["🌊😟🐵","The river was too wide to jump. Bandar sat down feeling sad, until a kind elephant named Gaja asked, “What’s wrong?”"],
+ ["🐘🪵🦜","Gaja lifted a heavy log with his trunk. The parrots carried vines, and the monkeys tied them tight."],
+ ["🌉🐒🐘","Together, the animals built a strong bridge. Bandar crossed it carefully while everyone cheered."],
+ ["👵🍌🤗","Grandmother hugged him and gave him sweet bananas. Bandar learned that friends can build a bridge where there was none."]]},
+{id:"sundarban-nouka",cat:"adventure",lang:"bn",title:"সুন্দরবনের নৌকাযাত্রা",emoji:"🛶",color:"#cfeedd",pages:[
+ ["🛶🌿👦","ছোট্ট টুকাই দাদুর সঙ্গে নৌকায় চড়ে সুন্দরবনে বেড়াতে গেল। নদীর দু’ধারে সবুজ ম্যানগ্রোভের বন।"],
+ ["🦌🌳👀","গাছের ফাঁকে ফাঁকে টুকাই একটা চিত্রা হরিণ দেখতে পেল। সে চুপ করে বসে রইল, যাতে হরিণটা ভয় না পায়।"],
+ ["🐦🌊🌅","নদীর ওপর দিয়ে সাদা বক উড়ে গেল। সূর্য ডোবার সময় আকাশ লাল-সোনালি হয়ে উঠল।"],
+ ["🌙🔦🛶","রাতে নৌকার আলোয় দাদু গল্প শোনালেন। বনের শব্দ শুনে টুকাই একটু ভয় পেলেও দাদুর হাত ধরে সাহস পেল।"],
+ ["🏠😊🌿","সকালে তারা বাড়ি ফিরল। টুকাই বুঝল, প্রকৃতিকে ভালোবাসলে আর সাবধানে চললে বনও বন্ধু হয়ে যায়।"]]},
+{id:"harano-guptadhan",cat:"adventure",lang:"bn",title:"হারানো গুপ্তধন",emoji:"🗺️",color:"#ffe9b8",pages:[
+ ["📖🗺️👧","ছুটিতে দিদার বাড়িতে রিঙ্কু একটা পুরনো বইয়ের ভেতরে হলদে মানচিত্র খুঁজে পেল।"],
+ ["🌳🐈👣","মানচিত্র ধরে সে আর তার ভাই বাগানের বুড়ো কাঁঠাল গাছ পর্যন্ত গেল। একটা বিড়াল তাদের সঙ্গে সঙ্গে চলল।"],
+ ["🪜🏚️🔦","পরের চিহ্নটা ছিল চিলেকোঠার ঘরে। টর্চ জ্বেলে তারা সাবধানে সিঁড়ি বেয়ে উঠল।"],
+ ["📦🔭📜","একটা পুরনো কাঠের বাক্সে ছিল একটা দূরবিন আর একটা চিঠি: “যে ধৈর্য ধরে খোঁজে, সে-ই আসল ধন পায়।”"],
+ ["🔭🌌👧","রাতে ছাদে উঠে দূরবিন দিয়ে তারা চাঁদ আর তারা দেখল। সেটাই ছিল তাদের সেরা গুপ্তধন।"]]},
+{id:"pahare-churay",cat:"adventure",lang:"bn",title:"পাহাড়ের চূড়ায়",emoji:"⛰️",color:"#dde8ff",pages:[
+ ["⛰️🎒👦","দার্জিলিংয়ে বেড়াতে গিয়ে বুবাই ভোরবেলা বাবার সঙ্গে টাইগার হিলে উঠতে বের হল।"],
+ ["🌫️🧥🚶","চারদিকে কুয়াশা আর ঠান্ডা হাওয়া। বুবাই মোটা জ্যাকেট পরে ধীরে ধীরে এগিয়ে চলল।"],
+ ["😮💪🏔️","পথ একটু কঠিন ছিল, তাই সে মাঝে মাঝে থামল আর জল খেল। বাবা বললেন, “ধীরে চললেও পৌঁছে যাবে।”"],
+ ["🌄✨🏔️","চূড়ায় পৌঁছে বুবাই দেখল, সূর্য উঠছে আর দূরের কাঞ্চনজঙ্ঘা সোনালি আলোয় ঝলমল করছে।"],
+ ["🎉🤗🌄","বুবাই খুশিতে হাততালি দিল। সে শিখল, ধৈর্য আর সাহস থাকলে উঁচু পাহাড়ও জয় করা যায়।"]]},
+{id:"megher-desh",cat:"adventure",lang:"bn",title:"মেঘের দেশে",emoji:"🎈",color:"#e6f2ff",pages:[
+ ["🎈🌙👧","রাতে ঘুমের মধ্যে মিমি স্বপ্ন দেখল, একটা বিশাল রঙিন বেলুন তাকে নিয়ে আকাশে উড়ে যাচ্ছে।"],
+ ["☁️🎈🐦","বেলুন মেঘের ভেতর দিয়ে উড়ে চলল। পাখিরা পাশ দিয়ে উড়ল, আর মেঘগুলো তুলোর মতো নরম!"],
+ ["🌈☁️😮","মেঘের দেশে মিমি এক রামধনুর সিঁড়ি দেখল। সে সিঁড়ি বেয়ে নামল আর উঠল, আনন্দে হাসল।"],
+ ["🌧️☁️🥺","এক ছোট্ট মেঘ কাঁদছিল, কারণ সে বৃষ্টি হয়ে ঝরতে ভয় পাচ্ছিল। মিমি বলল, “ভয় নেই, ফুল আর ফসল তোমার অপেক্ষায়।”"],
+ ["🌧️🌻🛏️","ছোট্ট মেঘ সাহস করে বৃষ্টি হয়ে ঝরল। মিমির ঘুম ভাঙল, জানালার বাইরে সত্যিই ঝিরঝির বৃষ্টি!"]]},
+{id:"jonakir-alo",cat:"adventure",lang:"bn",title:"জোনাকির আলোয়",emoji:"✨",color:"#fff3b8",pages:[
+ ["🌙🌳👧","গ্রামের এক গরমের রাতে বিদ্যুৎ চলে গেল। ছোট্ট অনু দাদির সঙ্গে উঠোনে এসে বসল।"],
+ ["✨✨✨🌿","হঠাৎ বাগানে অসংখ্য জোনাকি জ্বলে উঠল! যেন ছোট ছোট তারা মাটিতে নেমে এসেছে।"],
+ ["🫙✨🤔","অনু একটা কাচের বোতলে জোনাকি ধরতে চাইল। দাদি বললেন, “ওদের বন্দি করলে ওরা আর আলো দেবে না।”"],
+ ["🌿✨👣","অনু বোতল রেখে দিল। সে দাদির হাত ধরে আলোর পেছন পেছন আমবাগান পর্যন্ত হেঁটে গেল, আর রাতের পোকা-পাখির ডাক শুনল।"],
+ ["🌌😊👵","অনু বুঝল, প্রকৃতির আলো দেখতে হলে তাকে মুক্ত রাখতেই হয়। সে দাদির কোলে ঘুমিয়ে পড়ল, চোখ ভরা আলো নিয়ে।"]]},
+{id:"jaadui-gufa",cat:"adventure",lang:"hi",title:"जादुई गुफा",emoji:"🕳️",color:"#e3dcff",pages:[
+ ["⛰️🧒🧒","छुट्टियों में रोहन और उसकी बहन रिया पहाड़ी पर घूमने गए। वहाँ उन्हें एक बड़ी-सी गुफा दिखी।"],
+ ["🕳️🔦🗣️","रिया ने गुफा के सामने आवाज़ लगाई, “हेलो!” गुफा से भी “हेलो… हेलो…” की आवाज़ लौट आई।"],
+ ["😄📣🔁","रोहन ने मज़ाक में ज़ोर से चिल्लाकर कहा, “तुम बुरे हो!” जवाब में गुफा ने वही दोहराया, और वह चौंक गया।"],
+ ["🤔💡💛","रिया हँसी, “यह तो हमारी ही आवाज़ है! हम जो बोलते हैं, वही लौटकर आता है।” फिर रोहन ने कहा, “तुम बहुत अच्छी हो!”"],
+ ["🌄😊🏠","गुफा ने भी वही प्यारे शब्द लौटाए। दोनों हँसते हुए घर लौटे। मीठे बोल हमेशा लौटकर आते हैं।"]]},
+{id:"registan-ki-yatra",cat:"adventure",lang:"hi",title:"रेगिस्तान की यात्रा",emoji:"🐪",color:"#ffe6b8",pages:[
+ ["🏜️🐪👧","मीरा अपने नाना के साथ राजस्थान के रेगिस्तान में घूमने गई। उसका ऊँट मोती बहुत सुंदर और समझदार था।"],
+ ["☀️🐪🏜️","दिन में तेज़ धूप थी। मीरा ने टोपी पहनी, पानी पिया, और मोती की पीठ पर बैठकर रेत के टीलों की सैर की।"],
+ ["🧳🥵🆘","रास्ते में उन्हें एक थका हुआ यात्री मिला। उसका पानी खत्म हो गया था। मीरा ने अपनी बोतल से उसे पानी दिया।"],
+ ["🌌⭐🔥","रात को आसमान तारों से भर गया। सबने अलाव के पास बैठकर लोकगीत सुने।"],
+ ["🌅🐪🤗","सुबह यात्री ने धन्यवाद कहा। मीरा ने सीखा कि मदद करने से दिल को सबसे ज़्यादा खुशी मिलती है।"]]},
+{id:"samundar-ka-khazana",cat:"adventure",lang:"hi",title:"समुद्र का खज़ाना",emoji:"🐚",color:"#d5f0ff",pages:[
+ ["🏖️🌊👦","छोटा आरव अपने पापा के साथ समुद्र के किनारे गया। लहरें आतीं और रेत पर सीपियाँ छोड़ जातीं।"],
+ ["🐚🔍🧒","आरव ने कहा, “मैं सीपियों का खज़ाना ढूँढूँगा!” वह किनारे पर चलते-चलते रंग-बिरंगी सीपियाँ इकट्ठी करने लगा।"],
+ ["🐬🌊😮","तभी दूर पानी में एक डॉल्फ़िन कूदी! आरव ने ताली बजाई और हाथ हिलाकर उसे नमस्ते किया।"],
+ ["🗑️🧤🌍","आरव को किनारे पर कुछ प्लास्टिक का कचरा दिखा। उसने पापा के साथ मिलकर उसे उठाया और कूड़ेदान में डाल दिया।"],
+ ["🐚🏠💙","आरव का असली खज़ाना सीपियाँ, डॉल्फ़िन की यादें और साफ़ समुद्र था। हमें प्रकृति का ख़याल रखना चाहिए।"]]},
+{id:"barfeele-pahad",cat:"adventure",lang:"hi",title:"बर्फ़ीले पहाड़ों का सफ़र",emoji:"🏔️",color:"#e0f0ff",pages:[
+ ["🏔️❄️🎒","सर्दियों में कबीर अपने परिवार के साथ हिमालय की गोद में बसे एक गाँव में गया। चारों ओर सफ़ेद बर्फ़ थी।"],
+ ["🧣🧤🐕","कबीर ने गरम कपड़े, टोपी और दस्ताने पहने। गाँव का प्यारा कुत्ता ‘शेरू’ उसके साथ-साथ चलने लगा।"],
+ ["🌨️🐕🚶","अचानक बर्फ़ गिरने लगी और रास्ता धुँधला हो गया। कबीर घबराया, पर उसने पापा का हाथ कसकर पकड़ लिया।"],
+ ["🏠🔥🍵","शेरू रास्ता पहचानकर उन्हें एक छोटे-से घर तक ले गया। वहाँ आग जल रही थी और गरम दूध मिला।"],
+ ["🌤️⛄🐕","बर्फ़ थमी तो सबने मिलकर बर्फ़ का आदमी बनाया। कबीर ने शेरू को प्यार से गले लगाया और धन्यवाद कहा।"]]},
+{id:"antriksh-ki-sair",cat:"adventure",lang:"hi",title:"अंतरिक्ष की सैर",emoji:"🚀",color:"#d8d4ff",pages:[
+ ["🚀🌍👧","परी का सपना था कि वह अंतरिक्ष घूमे। एक रात उसके छोटे रोबोट दोस्त ‘टिंकू’ ने कहा, “चलो, आज चलते हैं!”"],
+ ["🔟🚀💨","“दस, नौ, आठ… तीन, दो, एक, चलो!” रॉकेट आसमान की ओर उड़ चला। नीचे धरती छोटी होती गई।"],
+ ["🌙🪐⭐","उन्होंने चाँद पर हल्की-हल्की छलाँगें लगाईं और रंग-बिरंगे छल्लों वाला शनि ग्रह दूर से देखा।"],
+ ["🌠☄️😮","एक चमकता हुआ तारा उनके पास से गुज़रा। परी ने आँखें बंद करके इच्छा माँगी, “सब बच्चे खुश रहें।”"],
+ ["🏠🛏️💫","रॉकेट धरती पर लौट आया। परी की आँख खुली तो वह अपने बिस्तर पर थी, और खिड़की से तारे मुस्कुरा रहे थे।"]]}
+,{id:"tiger-cubs-roar",cat:"animals",title:"The Tiger Cub’s First Roar",emoji:"🐯",color:"#ffe0b2",pages:[
+ ["🐯🌿🐾","Tinku the tiger cub could only squeak. “Mew!” he said, and the other animals giggled."],
+ ["🌅🏞️🐯","“Don’t worry,” said his mother. “A roar comes when you are ready.” Tinku practised every morning by the river."],
+ ["🌧️🐘😰","One stormy day, a baby elephant slipped and got stuck in the mud. Nobody could hear her tiny trumpet over the rain."],
+ ["🐯📢🐘","Tinku took a deep breath and ROARRR! His big voice echoed through the jungle, and the grown-ups hurried to help. Tinku had found his roar by helping a friend."]]},
+{id:"pinky-parrot",cat:"animals",title:"Pinky the Parrot Learns to Listen",emoji:"🦜",color:"#d7f5d0",pages:[
+ ["🦜🌴💬","Pinky the parrot loved to talk. She repeated everything she heard, but never stopped to think about it."],
+ ["🐢🌿🤫","One day, old Tortoise said, “Pinky, listening is a gift. Try hearing the forest first.”"],
+ ["🌊🐵🆘","Pinky listened carefully and heard a faint cry for help from the river. A little monkey had slipped in!"],
+ ["🦜🪢🐵","She called the others, and they threw a vine to pull the monkey out. Pinky learned that careful listening can save the day."]]},
+{id:"diwali-lantern",cat:"festivals",title:"The Lantern for Diwali",emoji:"🪔",color:"#fff0b8",pages:[
+ ["🪔🏡👧","Diwali was coming, and Asha wanted to make the brightest lantern on her street. She cut coloured paper and glued it carefully."],
+ ["🏮🧒🏠","Her neighbour’s little boy, Imran, had no lantern at all. Asha thought for a moment, then smiled."],
+ ["🏮🏮🤝","“Let’s make one together!” said Asha. They painted it with stars and flowers and hung it by the door."],
+ ["🪔✨🎆","On Diwali night, the lantern glowed softly beside the diyas. The whole street felt warm, because light shared is light doubled."]]},
+{id:"eid-sweets",cat:"festivals",title:"Sweets for Eid",emoji:"🌙",color:"#d9f2ff",pages:[
+ ["🌙✨🕌","When the Eid moon appeared, Zara and her family were so happy. Ammi made a big pot of sweet seviyan."],
+ ["🍮👧🏠","Zara filled small bowls to take to the neighbours. “Eid is for sharing,” Ammi said."],
+ ["🚶🍮🏠","She visited her teacher, the old baker, and the family next door. Everyone smiled and gave her good wishes."],
+ ["🎉🤗🌙","At home, the table was full of treats from every house. Zara learned that sharing makes happiness grow."]]},
+{id:"first-day-school",cat:"school",title:"Anu’s First Day at School",emoji:"🎒",color:"#ffd9e8",pages:[
+ ["🎒🏫😟","Anu held her mother’s hand tightly outside the big school gate. “What if no one plays with me?” she whispered."],
+ ["👩‍🏫🌈😊","Her teacher welcomed her warmly and showed her where to hang her bag. The classroom had bright pictures all around."],
+ ["🧒🖍️🤝","A girl named Mili shared her crayons with Anu. Soon they were drawing a rainbow together."],
+ ["🏠🎒😄","After school, Anu ran to her mother. “I made a friend!” she shouted. The gate did not look so big anymore."]]},
+{id:"sports-day",cat:"school",title:"The Sports Day Surprise",emoji:"🏃",color:"#d3f0d3",pages:[
+ ["🏃🏅🏫","It was Sports Day, and Ravi was ready for the running race. He had practised for weeks."],
+ ["🏃💨😮","Ravi ran fast and was in front. Then he heard a cry behind him: his friend Sam had fallen and hurt his knee."],
+ ["🤝🩹🏃","Ravi stopped, helped Sam up, and walked beside him to the finish line, arm in arm."],
+ ["🏅😊👏","Everyone clapped loudly. Ravi did not win the race, but the teacher gave him a special medal for kindness."]]},
+{id:"mayurir-nach",cat:"animals",lang:"bn",title:"ময়ূরীর নাচ",emoji:"🦚",color:"#d6f0f0",pages:[
+ ["🦚🌳🌦️","বর্ষার এক সকালে বনের ধারে একটা ছোট্ট ময়ূরী ঘুরে বেড়াচ্ছিল। আকাশ কালো করে মেঘ ডাকছিল।"],
+ ["🦚🦜😔","ময়ূরী অন্য পাখিদের মিষ্টি গান শুনে ভাবল, “আমি তো গান গাইতে পারি না!” সে মন খারাপ করে বসে রইল।"],
+ ["🌧️🦚✨","বৃষ্টি নামতেই ময়ূরী পেখম মেলে নাচ শুরু করল। রঙিন পালকগুলো ঝলমল করে উঠল।"],
+ ["👏🌈🦚","বনের সবাই হাততালি দিল। ময়ূরী বুঝল, প্রত্যেকের নিজের আলাদা গুণ আছে, তাই তুলনা করার দরকার নেই।"]]},
+{id:"bhulo-kukur",cat:"animals",lang:"bn",title:"ভুলো আর খোকন",emoji:"🐕",color:"#ffe6c8",pages:[
+ ["🐕🌧️🌆","বৃষ্টির এক সন্ধ্যায় ছোট্ট খোকন দেখল, একটা রোগা কুকুর ভিজে ঠকঠক করে কাঁপছে।"],
+ ["👦🥣🐕","খোকন মাকে বলল, “মা, ওকে একটু দুধ-ভাত দেব?” মা হেসে রাজি হলেন। কুকুরটা খুশিতে লেজ নাড়ল।"],
+ ["🐕🧶🛏️","খোকন ওর নাম রাখল ভুলো। রাতে ভুলোকে সে একটা পুরনো কম্বল দিয়ে বারান্দায় ঘুমোতে দিল।"],
+ ["🐕👦🌅","ভুলো এখন খোকনের সবচেয়ে ভালো বন্ধু। দুজনে একসঙ্গে খেলে। খোকন বুঝল, ভালোবাসা দিলে ভালোবাসাই ফিরে আসে।"]]},
+{id:"durgapujar-dhak",cat:"festivals",lang:"bn",title:"দুর্গাপূজার ঢাক",emoji:"🥁",color:"#ffd9d9",pages:[
+ ["🥁🌾☁️","শরৎকালের আকাশে সাদা মেঘ আর কাশফুল। পূজার ঢাকের আওয়াজ শুনে ছোট্ট তিতলি আনন্দে নেচে উঠল।"],
+ ["👗👨‍👩‍👧🛕","নতুন জামা পরে তিতলি বাবা-মায়ের সঙ্গে ঠাকুর দেখতে বের হল। প্যান্ডেলে কত আলো আর রং!"],
+ ["🙏💫🪔","মা দুর্গার সামনে সবাই হাত জোড় করে প্রণাম করল। ধুনুচির ধোঁয়া আর শঙ্খের আওয়াজে চারদিক ভরে গেল।"],
+ ["🍛🤗🥁","পূজার পর সবাই একসঙ্গে প্রসাদ আর মিষ্টি খেল। তিতলি বুঝল, উৎসব মানে সবার একসঙ্গে আনন্দ করা।"]]},
+{id:"poila-boishakh",cat:"festivals",lang:"bn",title:"পয়লা বৈশাখের সকাল",emoji:"🌅",color:"#fff0c2",pages:[
+ ["🌅🐦🏠","পয়লা বৈশাখের ভোরে পাখির ডাকে রনির ঘুম ভাঙল। আজ বাংলা নববর্ষ, ঘরে ঘরে আনন্দ!"],
+ ["👕🍚🐟","রনি নতুন পাঞ্জাবি পরল। মা পান্তা-ভাত আর ইলিশ ভাজা দিয়ে সুন্দর করে খাবার সাজালেন।"],
+ ["🎈🧒🛍️","বাবা তাকে নিয়ে মেলায় গেলেন। সেখানে সে মাটির খেলনা আর রঙিন বেলুন কিনল।"],
+ ["📒🍬🎉","দোকানদাররা নতুন হালখাতা খুলে সবাইকে মিষ্টি খাওয়ালেন। রনি বলল, “শুভ নববর্ষ!” সবাই হেসে বলল, “শুভ নববর্ষ!”"]]},
+{id:"tiffiner-bhag",cat:"school",lang:"bn",title:"টিফিনের ভাগ",emoji:"🍱",color:"#ffe9c2",pages:[
+ ["🍱🏫🔔","টিফিনের ঘণ্টা বাজল। রিয়া ব্যাগ থেকে লুচি আর আলুর দম বের করল।"],
+ ["😔🪑🧒","পাশের বেঞ্চে বসা রাজু আজ টিফিন আনেনি। সে চুপ করে জানালার দিকে তাকিয়ে ছিল।"],
+ ["🍱🤝😊","রিয়া নিজের টিফিন অর্ধেক করে বলল, “এসো, দুজনে মিলে খাই।” রাজু হেসে ফেলল।"],
+ ["👫🌟🏠","বাড়ি ফিরে রিয়া মাকে সব বলল। মা বললেন, “ভাগ করে খেলে খাবার আরও মিষ্টি লাগে।”"]]},
+{id:"school-er-bagan",cat:"school",lang:"bn",title:"স্কুলের বাগান",emoji:"🌱",color:"#d3f0d3",pages:[
+ ["🏫🌱🧑‍🌾","স্কুলের পেছনে একটা ফাঁকা জায়গা ছিল। দিদিমণি বললেন, “চলো, আমরা এখানে বাগান করি।”"],
+ ["⛏️🌱💧","সবাই মিলে মাটি খুঁড়ল, বীজ পুঁতল আর রোজ জল দিল। ছোট্ট টুসি সবচেয়ে বেশি যত্ন নিত।"],
+ ["🌿🌼🐝","কয়েক সপ্তাহ পরে চারা বের হল। তারপর ফুল ফুটল আর প্রজাপতি-মৌমাছি এসে বসল।"],
+ ["🌻😊🏫","বাগান দেখে সবাই খুশি। টুসি শিখল, ধৈর্য ধরে যত্ন করলে ছোট্ট বীজও সুন্দর গাছ হয়।"]]},
+{id:"hathi-dada",cat:"animals",lang:"hi",title:"हाथी दादा की सूँड",emoji:"🐘",color:"#e0e7f0",pages:[
+ ["🐘🌴☀️","जंगल में हाथी दादा रहते थे। उनकी लंबी सूँड सब जानवरों को बहुत पसंद थी।"],
+ ["🌴🥭🐒","एक दिन छोटे बंदर चीकू ने ऊँची डाल पर आम देखा, पर वह उसे तोड़ नहीं पा रहा था।"],
+ ["🐘🥭🙌","हाथी दादा ने अपनी सूँड ऊपर उठाई और पके आम तोड़कर सबको दिए। सबने ताली बजाई।"],
+ ["🥭😊🐘","चीकू ने कहा, “दादा, आपकी सूँड कितनी काम की है!” दादा मुस्कुराए, “जो काम आए, वही सच्चा साथी है।”"]]},
+{id:"chintu-gilehri",cat:"animals",lang:"hi",title:"चिंटू गिलहरी",emoji:"🐿️",color:"#ffe6d0",pages:[
+ ["🐿️🌰🍂","पतझड़ का मौसम था। चिंटू गिलहरी रोज़ मेवे और बीज इकट्ठा करती थी।"],
+ ["🦗🎶🐿️","उसका दोस्त झींगुर बोला, “खेलो, आराम करो!” पर चिंटू बोली, “पहले सर्दी की तैयारी करूँगी।”"],
+ ["❄️🏠🐿️","सर्दियाँ आईं और बर्फ़ पड़ने लगी। चिंटू अपने पेड़ के गरम घर में आराम से बैठी थी, क्योंकि उसके पास भरपूर खाना था।"],
+ ["🦗🌰🤝","चिंटू ने अपने भूखे दोस्त झींगुर को भी मेवे बाँटे। तैयारी करना और बाँटना, दोनों ज़रूरी हैं।"]]},
+{id:"holi-ke-rang",cat:"festivals",lang:"hi",title:"होली के रंग",emoji:"🎨",color:"#ffd9f0",pages:[
+ ["🎨🌸🏡","होली का दिन आया तो आरुषि ने पिचकारी और रंगों की थाली तैयार की। चारों ओर खुशी थी।"],
+ ["🐕😟🎨","गली का कुत्ता झबरू डरकर कोने में छिप गया। आरुषि समझ गई कि उसे रंग से डर लगता है।"],
+ ["🌈🧒🧒","आरुषि ने दोस्तों से कहा, “हम जानवरों पर रंग नहीं डालेंगे और सिर्फ़ हल्के, सूखे रंग लगाएँगे।” सबने हाँ कहा।"],
+ ["🍬🤗🎉","सबने गुलाल लगाया, गुझिया खाई और गले मिले। झबरू भी पूँछ हिलाता दूर से देखता रहा। प्यार ही सबसे सुंदर रंग है।"]]},
+{id:"rakhi-ka-tyohar",cat:"festivals",lang:"hi",title:"राखी का त्योहार",emoji:"🧵",color:"#ffe6c4",pages:[
+ ["🧵🌸👧","रक्षाबंधन आने वाला था। नन्ही रिया ने अपने भाई मोहित के लिए अपने हाथों से एक छोटी राखी बनाई।"],
+ ["🎀🧶😊","उसने रंगीन धागे, गोटा और छोटे मोती चिपकाए। राखी तैयार होने पर वह खुशी से चमक उठी।"],
+ ["🧵👦🤝","सुबह रिया ने मोहित की कलाई पर राखी बाँधी और तिलक लगाया। मोहित ने वादा किया, “मैं हमेशा तुम्हारा साथ दूँगा।”"],
+ ["🍬🎁😄","दोनों ने साथ मिठाई खाई। मोहित ने रिया को उसकी पसंदीदा किताब दी। भाई-बहन का प्यार सबसे प्यारा बंधन है।"]]},
+{id:"sach-ka-inaam",cat:"school",lang:"hi",title:"सच का इनाम",emoji:"🏅",color:"#fff0b8",pages:[
+ ["⚽🪟💥","खेल के समय अमन की गेंद से स्कूल की एक खिड़की का शीशा टूट गया। वह बहुत घबरा गया।"],
+ ["😟🤔🏃","उसने सोचा कि चुपचाप भाग जाए, पर उसका मन नहीं माना। सच बताने में डर लगा, फिर भी वह टीचर के पास गया।"],
+ ["👩‍🏫🙂👦","अमन ने काँपती आवाज़ में कहा, “मैडम, शीशा मुझसे टूटा है। मुझे माफ़ कर दीजिए।” टीचर ने ध्यान से उसकी बात सुनी।"],
+ ["🏅🌟👏","टीचर बोलीं, “तुमने सच बोला, यह बहुत बहादुरी है।” अमन ने आगे ध्यान से खेलने का वादा किया। सच बोलने वाले की इज़्ज़त होती है।"]]},
+{id:"kitabon-ki-duniya",cat:"school",lang:"hi",title:"किताबों की दुनिया",emoji:"📚",color:"#e0ecff",pages:[
+ ["📚🏫🧒","स्कूल की लाइब्रेरी में सुनीता ने एक रंगीन चित्रों वाली किताब उठाई। उसे पढ़ने में बहुत मज़ा आया।"],
+ ["📖🌍✨","किताब में उसने दूर देशों, जंगलों और तारों की सैर की। हर पन्ने के साथ एक नई दुनिया खुलती गई।"],
+ ["🧒🧒📕","उसकी सहेली माया ने पूछा, “क्या मैं भी पढ़ सकती हूँ?” सुनीता ने खुशी से किताब उसके साथ बाँटी।"],
+ ["📚🤗🏠","दोनों ने किताब को साफ़ रखा और समय पर लौटा दिया। किताबें हमारी दोस्त हैं, उनका ध्यान रखना चाहिए।"]]}
+,{id:"draw-animals",cat:"draw",lang:"mul",title:"🎨 Draw Animals",emoji:"🐱",color:"#ffe0b2",draw:[
+ ["🐱","Cat","বিড়াল","बिल्ली"],["🐶","Dog","কুকুর","कुत्ता"],["🐘","Elephant","হাতি","हाथी"],["🦁","Lion","সিংহ","शेर"],["🐟","Fish","মাছ","मछली"],
+ ["🐦","Bird","পাখি","चिड़िया"],["🐢","Turtle","কচ্ছপ","कछुआ"],["🐰","Rabbit","খরগোশ","खरगोश"],["🦋","Butterfly","প্রজাপতি","तितली"],["🐍","Snake","সাপ","साँप"]]},
+{id:"draw-fruits",cat:"draw",lang:"mul",title:"🎨 Draw Fruits and Vegetables",emoji:"🍎",color:"#ffd6d6",draw:[
+ ["🍎","Apple","আপেল","सेब"],["🍌","Banana","কলা","केला"],["🍇","Grapes","আঙুর","अंगूर"],["🍉","Watermelon","তরমুজ","तरबूज़"],["🍊","Orange","কমলা","संतरा"],
+ ["🍓","Strawberry","স্ট্রবেরি","स्ट्रॉबेरी"],["🥕","Carrot","গাজর","गाजर"],["🍅","Tomato","টমেটো","टमाटर"],["🌽","Corn","ভুট্টা","मक्का"],["🥭","Mango","আম","आम"]]},
+{id:"draw-vehicles",cat:"draw",lang:"mul",title:"🎨 Draw Vehicles",emoji:"🚗",color:"#d6e8ff",draw:[
+ ["🚗","Car","গাড়ি","कार"],["🚌","Bus","বাস","बस"],["🚲","Bicycle","সাইকেল","साइकिल"],["✈️","Aeroplane","উড়োজাহাজ","हवाई जहाज़"],["🚂","Train","ট্রেন","रेल"],
+ ["⛵","Boat","নৌকা","नाव"],["🚀","Rocket","রকেট","रॉकेट"],["🚁","Helicopter","হেলিকপ্টার","हेलीकॉप्टर"],["🛺","Auto rickshaw","অটোরিকশা","ऑटो रिक्शा"],["🚜","Tractor","ট্র্যাক্টর","ट्रैक्टर"]]},
+{id:"draw-nature",cat:"draw",lang:"mul",title:"🎨 Draw Nature and Weather",emoji:"🌈",color:"#d9f2e0",draw:[
+ ["☀️","Sun","সূর্য","सूरज"],["🌙","Moon","চাঁদ","चाँद"],["⭐","Star","তারা","तारा"],["☁️","Cloud","মেঘ","बादल"],["🌈","Rainbow","রামধনু","इंद्रधनुष"],
+ ["🌳","Tree","গাছ","पेड़"],["🌸","Flower","ফুল","फूल"],["⛰️","Mountain","পাহাড়","पहाड़"],["🌧️","Rain","বৃষ্টি","बारिश"],["🌊","Wave","ঢেউ","लहर"]]},
+{id:"draw-things",cat:"draw",lang:"mul",title:"🎨 Draw Things Around Me",emoji:"🏠",color:"#e6dcff",draw:[
+ ["🏠","House","বাড়ি","घर"],["📚","Book","বই","किताब"],["⚽","Ball","বল","गेंद"],["🪁","Kite","ঘুড়ি","पतंग"],["⏰","Clock","ঘড়ি","घड़ी"],
+ ["☂️","Umbrella","ছাতা","छाता"],["🎈","Balloon","বেলুন","गुब्बारा"],["👒","Hat","টুপি","टोपी"],["🪑","Chair","চেয়ার","कुर्सी"],["🔑","Key","চাবি","चाबी"]]}
 ];
 var home=document.getElementById("home"),reader=document.getElementById("reader"),grid=document.getElementById("grid"),chipsEl=document.getElementById("chips"),cur=null,pg=0,filter="all";
 var TTS="speechSynthesis" in window;
@@ -367,15 +608,19 @@ function drawGrid(){grid.innerHTML="";BOOKS.forEach(function(b){if(filter!=="all
  var el=document.createElement("button");el.className="book";el.lang=b.lang||"en";el.setAttribute("aria-label","Read "+b.title);
  el.innerHTML='<div class="cover" style="background:'+b.color+'">'+b.emoji+'</div><b>'+b.title+'</b>';
  el.onclick=function(){location.hash=b.id};grid.appendChild(el)})}
-function drawChips(){chipsEl.innerHTML="";CATS.forEach(function(c){var b=document.createElement("button");b.className="chip"+(c[0]===filter?" on":"");b.textContent=c[1];
- b.onclick=function(){filter=c[0];drawChips();drawGrid()};chipsEl.appendChild(b)})}
+function drawChips(){var lc=document.getElementById("lchips");chipsEl.innerHTML="";lc.innerHTML="";
+ function mk(c,host,extra){var b=document.createElement("button");b.className="chip"+extra+(c[0]===filter?" on":"");b.textContent=c[1];
+  b.onclick=function(){filter=(filter===c[0]&&extra)?"all":c[0];drawChips();drawGrid()};host.appendChild(b)}
+ CATS.forEach(function(c){mk(c,chipsEl,"")});LANGS.forEach(function(c){mk(c,lc," lang")})}
 function stopSpeech(){if(TTS)speechSynthesis.cancel();document.getElementById("speak").textContent="🔊"}
 function speak(){if(!TTS||!cur)return;if(speechSynthesis.speaking){stopSpeech();return}
  var u=new SpeechSynthesisUtterance(cur.pages[pg][1].replace(/[\u{1F300}-\u{1FAFF}\u2600-\u27BF\uFE0F\u200D\u20E3✨]/gu,""));u.rate=.85;if(cur.lang)u.lang=cur.lang==="bn"?"bn-IN":"hi-IN";u.pitch=1.1;u.onend=function(){document.getElementById("speak").textContent="🔊"};
  document.getElementById("speak").textContent="⏹";speechSynthesis.speak(u)}
 function render(){
  stopSpeech();var h=location.hash.replace("#","");cur=BOOKS.filter(function(b){return b.id===h})[0]||null;
+ drawerEl.style.display="none";closeModal();
  if(!cur){home.style.display="";reader.style.display="none";document.title="Little Story Nook";return}
+ if(cur.draw){home.style.display="none";reader.style.display="none";document.title=cur.title;openDraw();return}
  home.style.display="none";reader.style.display="flex";document.title=cur.title;pg=0;show()}
 function show(){
  stopSpeech();var p=cur.pages[pg],n=cur.pages.length;
@@ -391,11 +636,75 @@ document.getElementById("prev").onclick=function(){go(-1)};
 document.getElementById("next").onclick=function(){go(1)};
 document.getElementById("back").onclick=home_;
 document.getElementById("speak").onclick=speak;
-document.addEventListener("keydown",function(e){if(!cur)return;
+document.addEventListener("keydown",function(e){if(!cur)return;if(cur.draw){drawKeys(e);return}
  if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1);else if(e.key==="Escape"||e.key==="Backspace"){e.preventDefault();home_()}});
 var sx=null;reader.addEventListener("touchstart",function(e){sx=e.touches[0].clientX},{passive:true});
 reader.addEventListener("touchend",function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60)go(dx<0?1:-1);sx=null});
 window.addEventListener("hashchange",render);window.addEventListener("pagehide",stopSpeech);
+var drawerEl=document.getElementById("drawer"),cv=document.getElementById("cv"),cx=cv.getContext("2d",{willReadFrequently:true}),DRS={},D=null,tool="brush",bsize=6,bcolor="#e53935",undo=[],drawing=false,lastX=0,lastY=0,SAVED={};
+try{SAVED=JSON.parse(localStorage.getItem("kwDraw1")||"{}")}catch(e){SAVED={}}
+function persist(){try{localStorage.setItem("kwDraw1",JSON.stringify(SAVED))}catch(e){}}
+function bookScores(){return SAVED[cur.id]||(SAVED[cur.id]={})}
+var COLORS=["#000000","#e53935","#fb8c00","#fdd835","#43a047","#1e88e5","#8e24aa","#6d4c41","#ec407a","#00acc1","#9e9e9e","#ffffff"];
+(function(){var pal=document.getElementById("pal");COLORS.forEach(function(c){var b=document.createElement("button");b.className="sw"+(c===bcolor?" on":"");b.style.background=c;b.setAttribute("data-c",c);b.setAttribute("aria-label","Colour "+c);b.onclick=function(){setColor(c)};pal.appendChild(b)});
+ var pk=document.createElement("input");pk.type="color";pk.id="pick";pk.value="#ff00aa";pk.title="Pick any colour";pk.oninput=function(){setColor(pk.value)};pal.appendChild(pk)})();
+function setColor(c){bcolor=c;if(tool==="eraser")setTool("brush");Array.prototype.forEach.call(document.querySelectorAll(".sw"),function(x){x.classList.toggle("on",x.getAttribute("data-c")===c)})}
+function setTool(t){tool=t;Array.prototype.forEach.call(document.querySelectorAll("[data-tool]"),function(x){x.classList.toggle("on",x.getAttribute("data-tool")===t)})}
+Array.prototype.forEach.call(document.querySelectorAll("[data-tool]"),function(x){x.onclick=function(){setTool(x.getAttribute("data-tool"))}});
+Array.prototype.forEach.call(document.querySelectorAll("[data-size]"),function(x){x.onclick=function(){bsize=+x.getAttribute("data-size");Array.prototype.forEach.call(document.querySelectorAll("[data-size]"),function(y){y.classList.toggle("on",y===x)})}});
+function noteColor(c){var a=D.cols[D.idx]||(D.cols[D.idx]=[]);if(a.indexOf(c)<0)a.push(c)}
+function pushUndo(){undo.push(cx.getImageData(0,0,600,600));if(undo.length>12)undo.shift()}
+function pos(e){var r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]}
+function hexRGB(h){var n=parseInt(h.slice(1),16);return[n>>16&255,n>>8&255,n&255]}
+function floodFill(x,y,hex){var W=600,H=600,img=cx.getImageData(0,0,W,H),d=img.data,i0=(y*W+x)*4,tr=d[i0],tg=d[i0+1],tb=d[i0+2],c=hexRGB(hex);
+ if(Math.abs(tr-c[0])+Math.abs(tg-c[1])+Math.abs(tb-c[2])<8)return;
+ var seen=new Uint8Array(W*H),st=[x,y],tol=90;
+ while(st.length){var yy=st.pop(),xx=st.pop();if(xx<0||yy<0||xx>=W||yy>=H)continue;var p=yy*W+xx;if(seen[p])continue;seen[p]=1;var i=p*4;
+  if(Math.abs(d[i]-tr)+Math.abs(d[i+1]-tg)+Math.abs(d[i+2]-tb)>tol)continue;
+  d[i]=c[0];d[i+1]=c[1];d[i+2]=c[2];d[i+3]=255;st.push(xx+1,yy,xx-1,yy,xx,yy+1,xx,yy-1)}
+ cx.putImageData(img,0,0)}
+cv.addEventListener("pointerdown",function(e){e.preventDefault();if(!D)return;var p=pos(e);pushUndo();
+ if(tool==="fill"){floodFill(Math.floor(p[0]),Math.floor(p[1]),bcolor);noteColor(bcolor);D.stk[D.idx]=(D.stk[D.idx]||0)+1;return}
+ drawing=true;try{cv.setPointerCapture(e.pointerId)}catch(x){}
+ lastX=p[0];lastY=p[1];cx.lineCap="round";cx.lineJoin="round";cx.lineWidth=bsize;
+ var col=tool==="eraser"?"#ffffff":bcolor;cx.strokeStyle=col;cx.fillStyle=col;cx.beginPath();cx.arc(p[0],p[1],bsize/2,0,6.2832);cx.fill();
+ if(tool==="brush"){noteColor(bcolor);D.stk[D.idx]=(D.stk[D.idx]||0)+1}});
+cv.addEventListener("pointermove",function(e){if(!drawing)return;e.preventDefault();var p=pos(e);cx.beginPath();cx.moveTo(lastX,lastY);cx.lineTo(p[0],p[1]);cx.stroke();lastX=p[0];lastY=p[1]});
+function endStroke(){drawing=false}
+cv.addEventListener("pointerup",endStroke);cv.addEventListener("pointercancel",endStroke);
+function doUndo(){if(undo.length)cx.putImageData(undo.pop(),0,0)}
+function saveCur(){if(D)D.img[D.idx]=cv.toDataURL()}
+function openDraw(){drawerEl.style.display="flex";D=DRS[cur.id]||(DRS[cur.id]={idx:0,img:{},stk:{},cols:{}});document.getElementById("dtitle").textContent=cur.title;loadDrawing(D.idx)}
+function loadDrawing(i){D.idx=i;undo=[];cx.fillStyle="#ffffff";cx.fillRect(0,0,600,600);
+ var im=D.img[i];if(im){var I=new Image();I.onload=function(){if(D.idx===i)cx.drawImage(I,0,0)};I.src=im}
+ var d=cur.draw[i];document.getElementById("dpic").textContent=d[0];
+ document.getElementById("dnames").innerHTML="<small>Drawing "+(i+1)+" of 10 · Draw me!</small><b>"+d[1]+"</b><span lang=\"bn\">"+d[2]+"</span><span lang=\"hi\">"+d[3]+"</span>";
+ document.getElementById("dprev").disabled=i===0;document.getElementById("dnext").disabled=i===9;updateDots();updateScore()}
+function changeDrawing(j){if(j<0||j>9||j===D.idx)return;saveCur();loadDrawing(j)}
+function updateDots(){var b=bookScores(),h="";for(var i=0;i<10;i++)h+="<span class=\""+(b[i]!=null?"done ":"")+(i===D.idx?"cur":"")+"\" data-i=\""+i+"\">"+(i+1)+"</span>";
+ var el=document.getElementById("ddots");el.innerHTML=h;Array.prototype.forEach.call(el.children,function(sp){sp.onclick=function(){changeDrawing(+sp.getAttribute("data-i"))}})}
+function updateScore(){var b=bookScores(),t=0,n=0;for(var k in b){t+=b[k];n++}document.getElementById("dscore").textContent="⭐ "+t+" · "+n+"/10"}
+function scoreNow(){var d=cx.getImageData(0,0,600,600).data,n=0,t=0;for(var y=0;y<600;y+=3)for(var x=0;x<600;x+=3){var i=(y*600+x)*4;t++;if(d[i]<240||d[i+1]<240||d[i+2]<240)n++}
+ var cov=n/t,cl=(D.cols[D.idx]||[]).length,st=D.stk[D.idx]||0;return Math.round(Math.min(cov/0.12,1)*50+Math.min(cl,4)*10+Math.min(st/10,1)*10)}
+function modal(h,btns){var m=document.getElementById("mbox");m.innerHTML=h+"<div class=\"mbtns\"></div>";var bx=m.lastChild;
+ btns.forEach(function(b){var x=document.createElement("button");x.className="btn";x.textContent=b[0];x.onclick=function(){closeModal();if(b[1])b[1]()};bx.appendChild(x)});document.getElementById("modal").style.display="flex"}
+function closeModal(){document.getElementById("modal").style.display="none"}
+document.getElementById("ddone").onclick=function(){var sc=scoreNow();
+ if(sc<15){modal("<div class=\"mstars\">✏️</div><p>Let’s draw a little more!<br>Draw the picture, add some colour, then press Done again.</p>",[["OK"]]);return}
+ var b=bookScores();if(!(b[D.idx]>=sc))b[D.idx]=sc;persist();saveCur();updateDots();updateScore();
+ var stars=sc>=80?3:sc>=50?2:1,msg=stars===3?"Wonderful! বাহ্! शाबाश!":stars===2?"Great job! দারুণ! बहुत बढ़िया!":"Nice try! Add more colours next time.";
+ var h="<div class=\"mstars\">"+"⭐".repeat(stars)+"</div><div class=\"mscore\">Score: "+sc+" / 100</div><p>"+msg+(b[D.idx]>sc?"<br><small>Your best: "+b[D.idx]+"</small>":"")+"<br><small>The score rewards effort and colours 🎨</small></p>";
+ var keys=Object.keys(b);if(keys.length===10){var tot=0;keys.forEach(function(k){tot+=b[k]});h+="<p>🏆 Book complete! Total: "+tot+" / 1000</p>"}
+ var btns=[["Keep drawing"]];if(D.idx<9)btns.push(["Next drawing ▶",function(){changeDrawing(D.idx+1)}]);else btns.push(["Library 📚",function(){saveCur();home_()}]);
+ modal(h,btns)};
+document.getElementById("dprev").onclick=function(){changeDrawing(D.idx-1)};
+document.getElementById("dnext").onclick=function(){changeDrawing(D.idx+1)};
+document.getElementById("dback").onclick=function(){saveCur();home_()};
+document.getElementById("dundo").onclick=doUndo;
+document.getElementById("dclear").onclick=function(){pushUndo();cx.fillStyle="#ffffff";cx.fillRect(0,0,600,600);D.stk[D.idx]=0;D.cols[D.idx]=[]};
+document.getElementById("dsave").onclick=function(){try{cv.toBlob(function(bl){var a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download=cur.id+"-"+(D.idx+1)+".png";document.body.appendChild(a);a.click();a.remove()})}catch(e){}};
+function drawKeys(e){if(document.getElementById("modal").style.display==="flex"){if(e.key==="Escape")closeModal();return}
+ if(e.key==="ArrowRight")changeDrawing(D.idx+1);else if(e.key==="ArrowLeft")changeDrawing(D.idx-1);else if(e.key==="Escape"){saveCur();home_()}else if((e.ctrlKey||e.metaKey)&&e.key==="z"){e.preventDefault();doUndo()}}
 drawChips();drawGrid();render();
 </script>
 </body>
